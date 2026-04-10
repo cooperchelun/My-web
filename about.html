@@ -90,38 +90,47 @@
         h2 {
             font-size: 1.6rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: #1f3a48;
             border-left: 6px solid #ffb347;
             padding-left: 0.9rem;
         }
 
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0.75rem 0 0.25rem 0;
-            color: #2c4b5f;
+        .card-desc {
+            color: #4a6272;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
         }
 
-        .result-badge {
-            background: #fef3e2;
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            font-weight: 500;
-            color: #b95f00;
-            margin: 0.5rem 0 0.75rem 0;
+        /* 統一按鈕樣式 - 每個區塊只留一個主按鈕 */
+        .main-btn {
+            background: linear-gradient(135deg, #ffb347 0%, #ff9f2a 100%);
+            padding: 0.7rem 1.8rem;
+            border-radius: 3rem;
             font-size: 1rem;
-        }
-
-        .link-group {
-            margin-top: 0.75rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            transition: all 0.25s ease;
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(255, 180, 71, 0.3);
         }
 
+        .main-btn:hover {
+            background: linear-gradient(135deg, #ff9f2a 0%, #ff8c00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(255, 140, 0, 0.35);
+            color: white;
+        }
+
+        .main-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* 次要按鈕保留但不再使用多個，此處僅供footer等其他連結 */
         .btn-link {
             background: #f0f4f9;
             padding: 0.4rem 1rem;
@@ -149,27 +158,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: 0.2s;
-            border-bottom: 1px solid transparent;
         }
 
         a:hover {
             color: #e67e22;
-            border-bottom-color: #e67e22;
-        }
-
-        .inline-link {
-            border-bottom: 1px dashed #cbdbe0;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .job-desc {
-            color: #4a6272;
-            margin-bottom: 0.6rem;
         }
 
         hr {
@@ -188,6 +180,18 @@
             border-top: 1px solid #e2edf2;
         }
 
+        .footer-links {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #5f7f9e;
+        }
+
         @media (max-width: 650px) {
             body {
                 padding: 1rem;
@@ -204,10 +208,10 @@
             h2 {
                 font-size: 1.4rem;
             }
-        }
-
-        .icon-emoji {
-            font-size: 1.1rem;
+            .main-btn {
+                padding: 0.5rem 1.4rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -227,109 +231,60 @@
     </div>
 
     <div class="content">
-        <!-- 區塊1：興趣何倫碼測驗結果 (已簡化，僅保留一個按鈕) -->
+        <!-- 區塊1：興趣何倫碼測驗結果 - 只有一個按鈕 -->
         <div class="card">
             <h2>📊 興趣何倫碼測驗結果</h2>
-            <div class="result-badge">社會型｜事務型｜企業型</div>
-            <p>根據測驗分析，興趣傾向偏向與人群互動、組織規劃與執行事務。</p>
-            <div class="link-group">
-                <!-- 只有一個按鈕，標題改為 CCL's測驗結果，連結指向 RSC.html -->
-                <a href="RSC.html" class="btn-link">
-                    📑 CCL's測驗結果
-                </a>
-            </div>
+            <div class="card-desc">社會型｜事務型｜企業型 — 傾向與人群互動、組織規劃與執行事務。</div>
+            <!-- 單一按鈕：CCL's測驗結果，連結至 RSC.html -->
+            <a href="RSC.html" class="main-btn">
+                📑 CCL's測驗結果
+            </a>
         </div>
 
-        <!-- 區塊2：相關工作介紹 - 專案經理 -->
+        <!-- 區塊2：相關工作介紹 - 只有一個按鈕 -->
         <div class="card">
             <h2>💼 相關工作介紹</h2>
-            <div class="job-title">
-                <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="inline-link">
-                    專案經理 / 專案管理師 PM
-                </a>
-            </div>
-            <div class="job-desc">
-                為專案的成功策劃和執行負總責的人，涵蓋時程、成本、資源及風險管理。
-            </div>
-            <div class="link-group">
-                <a href="https://www.pmi.org.tw/" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    📌 PMI 國際專案管理學會
-                </a>
-                <a href="https://zh.wikipedia.org/wiki/%E9%A0%85%E7%9B%AE%E7%AE%A1%E7%90%86" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    📖 維基百科 - 專案管理
-                </a>
-            </div>
+            <div class="card-desc">專案經理 / 專案管理師 PM — 為專案的成功策劃和執行負總責的人。</div>
+            <!-- 單一按鈕：連結至外部詳細介紹（例如 104 職缺或維基） -->
+            <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="main-btn">
+                🔍 瞭解專案經理職務
+            </a>
         </div>
 
-        <!-- 區塊3：張哲綸's 未來目標 -->
+        <!-- 區塊3：未來目標 - 只有一個按鈕 -->
         <div class="card">
             <h2>🎯 張哲綸's 未來目標</h2>
-            <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">✨ 「了解自己在做什麼」 ✨</p>
-            <p>不僅學習技術，更培養規劃思維，讓每一步都朝著明確職涯方向前進。</p>
-            <div class="link-group">
-                <a href="https://drive.google.com/drive/folders/example" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    📓 我的學習規劃筆記 (範例)
-                </a>
-                <a href="https://www.mis.nsysu.edu.tw/p/405-1102-267099,c151.php?Lang=zh-tw" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    🏫 系所課程地圖參考
-                </a>
-            </div>
+            <div class="card-desc">✨ 「了解自己在做什麼」 — 不僅學習技術，更培養規劃思維。</div>
+            <!-- 單一按鈕：連結至學習規劃筆記或課程地圖 -->
+            <a href="https://www.mis.nsysu.edu.tw/p/405-1102-267099,c151.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="main-btn">
+                📓 我的學習規劃與目標
+            </a>
         </div>
 
-        <!-- 區塊4：自傳履歷 + 參與組織 -->
+        <!-- 區塊4：自傳履歷 + 參與組織 - 只有一個按鈕 -->
         <div class="card">
-            <h2>📄 自傳履歷</h2>
-            <p>規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。</p>
-            <div class="link-group" style="gap: 1rem; flex-wrap: wrap;">
-                <a href="#" class="btn-link" id="autoBioLink">📖 線上自傳 (示範)</a>
-                <a href="https://www.cakeresume.com/" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    📄 我的履歷 (CakeResume 示範)
-                </a>
-                <a href="https://github.com/" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    🤝 參與的組織 (GitHub 社群)
-                </a>
-                <a href="https://www.enterprise.org.tw/" class="btn-link" target="_blank" rel="noopener noreferrer">
-                    🧑‍🤝‍🧑 校內專案社團 (範例)
-                </a>
-            </div>
-            <hr>
-            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
-                🔗 更多連結：
-                <a href="#" id="dummyResume" style="margin-left: 0.5rem;">自傳完整版</a> ·
-                <a href="#" id="dummyOrg">參與組織介紹</a>
-            </div>
+            <h2>📄 自傳履歷 & 參與組織</h2>
+            <div class="card-desc">規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。</div>
+            <!-- 單一按鈕：連結至履歷平台（範例 CakeResume），使用者可自行修改網址 -->
+            <a href="https://www.cakeresume.com/" target="_blank" rel="noopener noreferrer" class="main-btn">
+                📄 檢視我的履歷 / 自傳
+            </a>
         </div>
     </div>
 
     <footer>
         <div>© 2025 張哲綸 · 資管二B | 個人學習網頁</div>
-        <div style="margin-top: 8px;">
-            <a href="#" id="backToTop" style="color:#5f7f9e;">⬆ 回到頂部</a> &nbsp;|&nbsp;
-            <a href="mailto:jhelun@example.edu.tw" style="color:#5f7f9e;">📧 寄信給我</a> &nbsp;|&nbsp;
-            <a href="https://github.com/" target="_blank" style="color:#5f7f9e;">🐙 我的 GitHub</a>
+        <div class="footer-links">
+            <a href="#" id="backToTop">⬆ 回到頂部</a>
+            <a href="mailto:jhelun@example.edu.tw">📧 寄信給我</a>
+            <a href="https://github.com/" target="_blank">🐙 我的 GitHub</a>
         </div>
     </footer>
 </div>
 
 <script>
     (function() {
-        // 示範連結提示
-        const demoLinks = [
-            'autoBioLink',
-            'dummyResume',
-            'dummyOrg'
-        ];
-        demoLinks.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) {
-                el.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    alert('✨ 這是一個示範連結 🔗\n您可以將它替換為實際的檔案或網址 (例如自傳PDF、完整報告連結)。');
-                });
-            }
-        });
-
-        // backToTop 平滑滾動
+        // 回到頂部功能
         const backBtn = document.getElementById('backToTop');
         if (backBtn) {
             backBtn.addEventListener('click', (e) => {
@@ -338,7 +293,7 @@
             });
         }
 
-        console.log('個人網頁載入完成 — 已刪除「張哲綸"s 何倫碼測驗結果」區塊，僅保留單一按鈕「CCL's測驗結果」指向 RSC.html');
+        console.log('個人網頁載入完成 — 每個大標題區塊皆已簡化為「只有一個按鈕」，版面更簡潔。');
     })();
 </script>
 </body>
