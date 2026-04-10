@@ -1,122 +1,370 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MIS職涯規劃 - 張哲綸</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>張哲綸 · 個人網頁 | 資管二B</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #f5f5f5;
-}
+        body {
+            background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: #1a2c3e;
+            padding: 2rem 1.5rem;
+        }
 
-header {
-    background: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
+        /* 主容器 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(0px);
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
 
-section {
-    padding: 40px;
-    margin: 20px;
-    background: white;
-    border-radius: 10px;
-}
+        /* 頁首裝飾 */
+        .hero {
+            background: linear-gradient(135deg, #2b3b4e 0%, #1f2e3f 100%);
+            padding: 2rem 2.5rem;
+            color: white;
+            border-bottom: 5px solid #ffb347;
+        }
 
-h2 {
-    color: #333;
-}
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-}
+        .hero h1 a {
+            color: #ffdd99;
+            text-decoration: none;
+            border-bottom: 2px dotted #ffb347;
+            transition: 0.2s;
+        }
 
-/* RWD */
-@media (max-width: 600px) {
-    section {
-        padding: 20px;
-    }
-}
-</style>
+        .hero h1 a:hover {
+            color: #fff0cf;
+            border-bottom-color: #ffaa33;
+        }
 
+        .hero-tagline {
+            font-size: 1rem;
+            opacity: 0.85;
+            margin-top: 0.75rem;
+            border-left: 3px solid #ffb347;
+            padding-left: 1rem;
+        }
+
+        /* 內文區塊 */
+        .content {
+            padding: 2rem 2.5rem;
+        }
+
+        /* 卡片式區塊 */
+        .card {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2f5;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f3a48;
+            border-left: 6px solid #ffb347;
+            padding-left: 0.9rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0.75rem 0 0.25rem 0;
+            color: #2c4b5f;
+        }
+
+        .result-badge {
+            background: #fef3e2;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #b95f00;
+            margin: 0.5rem 0 0.75rem 0;
+            font-size: 1rem;
+        }
+
+        .link-group {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .btn-link {
+            background: #f0f4f9;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #1f3a48;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #dce5ec;
+        }
+
+        .btn-link:hover {
+            background: #ffb34720;
+            border-color: #ffb347;
+            color: #c45f00;
+            transform: translateY(-1px);
+        }
+
+        a {
+            color: #2a6f8f;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: #e67e22;
+            border-bottom-color: #e67e22;
+        }
+
+        .inline-link {
+            border-bottom: 1px dashed #cbdbe0;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .job-desc {
+            color: #4a6272;
+            margin-bottom: 0.6rem;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, #e0e8f0, transparent);
+        }
+
+        footer {
+            background: #f8fafd;
+            padding: 1.2rem 2.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #5c6f87;
+            border-top: 1px solid #e2edf2;
+        }
+
+        @media (max-width: 650px) {
+            body {
+                padding: 1rem;
+            }
+            .content {
+                padding: 1.2rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        .icon-emoji {
+            font-size: 1.1rem;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <h1>我的MIS職涯規劃</h1>
-    <p>張哲綸</p>
-</header>
-
 <div class="container">
+    <!-- 頁首區域：標題＋副標 (學號姓名) -->
+    <div class="hero">
+        <h1>
+            <!-- 超連結：學校系所官網 (示範連結) -->
+            <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
+        </h1>
+        <div class="hero-tagline">
+            🌟 為了能夠學習更多網頁知識，且練習可以累積更多經驗，便有了這個
+            <a href="https://myself-plum.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:#ffdd99; border-bottom:1px solid #ffb347;">個人網頁</a>
+            。
+        </div>
+    </div>
 
-<section>
-<h2>自我介紹</h2>
-<p>我目前為大二資訊相關科系學生，對電腦技術與系統管理具有濃厚興趣，未來希望朝MIS工程師發展。</p>
-</section>
+    <div class="content">
+        <!-- 區塊1：興趣何倫碼測驗結果 -->
+        <div class="card">
+            <h2>📊 興趣何倫碼測驗結果</h2>
+            <div class="result-badge">社會型｜事務型｜企業型</div>
+            <p>根據測驗分析，興趣傾向偏向與人群互動、組織規劃與執行事務。</p>
+            <div class="link-group">
+                <!-- 超連結: 何倫碼測驗介紹 -->
+                <a href="https://www.104.com.tw/event/holland/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    🔍 何倫碼測驗介紹
+                </a>
+                <!-- 超連結: 找出自己屬於何種人格類型 (外部測驗參考) -->
+                <a href="https://lawyer.get.com.tw/psychtest/holland/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    🧩 找出自己屬於何種人格類型
+                </a>
+            </div>
+        </div>
 
-<section>
-<h2>職涯測驗結果（RSC）</h2>
-<p>我的測驗結果為RSC（實用型、社會型、事務型）。</p>
-<ul>
-<li>R：喜歡實作與技術操作</li>
-<li>S：喜歡幫助他人</li>
-<li>C：做事細心有條理</li>
-</ul>
-<p>適合從事MIS、資訊人員等工作。</p>
-</section>
+        <!-- 區塊2：哲綸's 何倫碼測驗結果 (已移除「完整測驗報告(示範)」按鈕) -->
+        <div class="card">
+            <h2>🧪 張哲綸's 何倫碼測驗結果</h2>
+            <p><strong>企業型 (Enterprising)</strong> ＋ <strong>社會型 (Social)</strong> ＋ <strong>事務型 (Conventional)</strong></p>
+            <p>善於領導溝通、樂於助人並重視細節規劃，適合管理與專案導向工作。</p>
+            <div class="link-group">
+                <!-- 僅保留指向 RSC.html 的按鈕，已移除示範報告按鈕 -->
+                <a href="RSC.html" class="btn-link">
+                    📑 何倫碼測驗結果分析 (參考資源)
+                </a>
+            </div>
+        </div>
 
-<section>
-<h2>MIS工作介紹</h2>
-<p>此職位主要負責公司內部資訊系統維護與技術支援。</p>
+        <!-- 區塊3：相關工作介紹 - 專案經理 -->
+        <div class="card">
+            <h2>💼 相關工作介紹</h2>
+            <div class="job-title">
+                <!-- 超連結：專案經理/PM 相關職缺介紹 (104 工作說明) -->
+                <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="inline-link">
+                    專案經理 / 專案管理師 PM
+                </a>
+            </div>
+            <div class="job-desc">
+                為專案的成功策劃和執行負總責的人，涵蓋時程、成本、資源及風險管理。
+            </div>
+            <div class="link-group">
+                <a href="https://www.pmi.org.tw/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    📌 PMI 國際專案管理學會
+                </a>
+                <a href="https://zh.wikipedia.org/wiki/%E9%A0%85%E7%9B%AE%E7%AE%A1%E7%90%86" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    📖 維基百科 - 專案管理
+                </a>
+            </div>
+        </div>
 
-<h3>工作內容</h3>
-<ul>
-<li>電腦與網路設備維護</li>
-<li>使用者問題排除</li>
-<li>帳號與權限管理</li>
-<li>系統監控與維護</li>
-</ul>
+        <!-- 區塊4：張哲綸's 未來目標 -->
+        <div class="card">
+            <h2>🎯 張哲綸's 未來目標</h2>
+            <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 0.5rem;">✨ 「了解自己在做什麼」 ✨</p>
+            <p>不僅學習技術，更培養規劃思維，讓每一步都朝著明確職涯方向前進。</p>
+            <div class="link-group">
+                <!-- 超連結：學習規劃筆記 (示範 Google Docs / Notion 風格連結) -->
+                <a href="https://drive.google.com/drive/folders/example" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    📓 我的學習規劃筆記 (範例)
+                </a>
+                <a href="https://www.mis.nsysu.edu.tw/p/405-1102-267099,c151.php?Lang=zh-tw" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    🏫 系所課程地圖參考
+                </a>
+            </div>
+        </div>
 
-<h3>工作需求</h3>
-<ul>
-<li>資訊相關科系</li>
-<li>基本網路知識</li>
-<li>作業系統操作能力</li>
-</ul>
-</section>
+        <!-- 區塊5：自傳履歷 + 參與組織 -->
+        <div class="card">
+            <h2>📄 自傳履歷</h2>
+            <p>規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。</p>
+            <div class="link-group" style="gap: 1rem; flex-wrap: wrap;">
+                <!-- 自傳連結：可以連到線上PDF或文件 -->
+                <a href="#" class="btn-link" id="autoBioLink">📖 線上自傳 (示範)</a>
+                <!-- 履歷連結：LinkedIn / CakeResume 示範 -->
+                <a href="https://www.cakeresume.com/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    📄 我的履歷 (CakeResume 示範)
+                </a>
+                <!-- 參與的組織：社團 / GitHub / 開源社群 -->
+                <a href="https://github.com/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    🤝 參與的組織 (GitHub 社群)
+                </a>
+                <a href="https://www.enterprise.org.tw/" class="btn-link" target="_blank" rel="noopener noreferrer">
+                    🧑‍🤝‍🧑 校內專案社團 (範例)
+                </a>
+            </div>
+            <!-- 額外保留原有風格的超連結整理，更完整 -->
+            <hr>
+            <div style="font-size: 0.9rem; margin-top: 0.5rem;">
+                🔗 更多連結：
+                <a href="#" id="dummyResume" style="margin-left: 0.5rem;">自傳完整版</a> ·
+                <a href="#" id="dummyOrg">參與組織介紹</a>
+            </div>
+        </div>
+    </div>
 
-<section>
-<h2>為何適合這份工作</h2>
-<p>我的RSC人格中，R型讓我喜歡動手解決問題，S型讓我樂於幫助他人，C型讓我做事細心，這些特質與MIS工程師的需求高度符合。</p>
-</section>
-
-<section>
-<h2>未來規劃</h2>
-<ul>
-<li>修習網路與資安相關課程</li>
-<li>學習Linux與系統管理</li>
-<li>考取資訊證照</li>
-<li>參與專題與實習</li>
-</ul>
-</section>
-
-<section>
-<h2>自傳</h2>
-<p>
-我目前就讀資訊相關科系，對電腦與資訊技術有濃厚興趣。透過課程學習與自我探索，我逐漸確立未來希望朝MIS工程師發展。
-</p>
-
-<p>
-我的個性細心且具責任感，也樂於幫助他人解決問題，這與MIS工作內容相符。未來我將持續精進專業能力，提升系統與網路相關技術。
-</p>
-</section>
-
+    <footer>
+        <div>© 2025 張哲綸 · 資管二B | 個人學習網頁</div>
+        <div style="margin-top: 8px;">
+            <a href="#" id="backToTop" style="color:#5f7f9e;">⬆ 回到頂部</a> &nbsp;|&nbsp;
+            <a href="mailto:jhelun@example.edu.tw" style="color:#5f7f9e;">📧 寄信給我</a> &nbsp;|&nbsp;
+            <a href="https://github.com/" target="_blank" style="color:#5f7f9e;">🐙 我的 GitHub</a>
+        </div>
+    </footer>
 </div>
 
+<!-- 簡單的 JavaScript 讓部分示範連結跳出提醒 (保持美觀，不影響結構) -->
+<script>
+    (function() {
+        // 保留其他示範連結提示 (已移除 demoReportLink 因為該按鈕已不存在)
+        const demoLinks = [
+            'autoBioLink',
+            'dummyResume',
+            'dummyOrg'
+        ];
+        demoLinks.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('✨ 這是一個示範連結 🔗\n您可以將它替換為實際的檔案或網址 (例如自傳PDF、完整報告連結)。');
+                });
+            }
+        });
+
+        // backToTop 平滑滾動
+        const backBtn = document.getElementById('backToTop');
+        if (backBtn) {
+            backBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        console.log('個人網頁載入完成 — 已移除「張哲綸 完整測驗報告 (示範)」按鈕，僅保留指向 RSC.html 的連結。');
+    })();
+</script>
 </body>
 </html>
