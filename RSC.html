@@ -237,7 +237,7 @@
             border-left-color: #3a619b;
         }
 
-        /* —————— 紅色框框區域 (放你的結果照片) —————— 寬版適配 */
+        /* —————— 紅色框框區域 (放你的結果照片 + 完整數據) —————— 寬版適配 */
         .photo-redframe {
             margin: 16px 42px 32px 42px;
             background: #fff5f5;
@@ -245,14 +245,20 @@
             border-radius: 36px;
             padding: 20px 28px;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 24px;
+            flex-direction: column;
+            gap: 28px;
             transition: all 0.2s;
             box-shadow: 0 6px 16px rgba(229, 62, 62, 0.12);
         }
 
+        /* 上半部：標題與圖像區域 */
+        .photo-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
         .photo-label {
             display: flex;
             align-items: center;
@@ -264,19 +270,52 @@
             border-radius: 60px;
             font-size: 1rem;
         }
-
         .photo-label span {
             font-size: 1.6rem;
         }
 
-        .photo-place {
+        /* 截圖容器：美觀呈現你提供的圖片 (me.png) */
+        .screenshot-container {
             flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-width: 240px;
+            background: #fffaf2;
+            border-radius: 28px;
+            padding: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            border: 1px solid #ffe0cc;
+            transition: transform 0.2s ease;
         }
-
+        .screenshot-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
+        }
+        .screenshot-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #b85c1a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 3px solid #e53e3e;
+            padding-left: 12px;
+        }
+        .test-image {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+            background: #f4efe7;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border: 1px solid #f0d5c0;
+        }
+        /* 讓圖片響應式且保持自然比例 */
+        .test-image {
+            max-height: 280px;
+            object-fit: contain;
+            width: auto;
+            margin: 0 auto;
+        }
         /* 結果表格卡片樣式 (精緻寬版) */
         .result-data-card {
             width: 100%;
@@ -386,9 +425,11 @@
             }
             .photo-redframe {
                 margin: 12px 28px 28px 28px;
+                padding: 20px;
+            }
+            .photo-header {
                 flex-direction: column;
                 align-items: flex-start;
-                padding: 20px;
             }
             .big-letter {
                 width: 85px;
@@ -422,6 +463,12 @@
         .back-home-btn i {
             font-style: normal;
             font-size: 1.2rem;
+        }
+        /* 圖片預設優雅 */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
     </style>
 </head>
@@ -506,16 +553,30 @@
         </div>
     </div>
 
-    <!-- ★ 紅色框框區域：放置你的結果照片（完整分數截圖資料）★ -->
+    <!-- ★ 紅色框框區域：完整放置你的結果照片 (me.png) + 測驗數據表格（對應原始截圖）★ -->
     <div class="photo-redframe">
-        <div class="photo-label">
-            <span>📸</span> 你的測驗結果
+        <!-- 上半區塊：照片標題 & 實際截圖影像 (現在指向 me.png) -->
+        <div class="photo-header">
+            <div class="photo-label">
+                <span>📸</span> 你的測驗結果 · 原始截圖
+            </div>
+            <!-- 使用 me.png 作為圖片來源 -->
+            <div class="screenshot-container">
+                <div class="screenshot-title">
+                    <span>🖼️</span> 霍蘭德職業性格剖面 (測驗畫面)
+                </div>
+                <img class="test-image" src="me.png" 
+                     alt="霍蘭德測驗結果截圖 - 實用型R 社會型S 事務型C 完整分數PR (me.png)"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22400%22%20height%3D%22200%22%20viewBox%3D%220%200%20400%20200%22%3E%3Crect%20width%3D%22400%22%20height%3D%22200%22%20fill%3D%22%23f7ede8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%23b85c1a%22%20font-size%3D%2214%22%3E%E6%AA%94%E6%A1%88%20me.png%20%E6%9C%AA%E6%89%BE%E5%88%B0%EF%BC%8C%E8%AB%8B%E7%A2%BA%E8%AA%8D%E5%9C%96%E7%89%87%E8%B7%AF%E5%BE%91%3C%2Ftext%3E%3C%2Fsvg%3E'; this.style.objectFit='cover';"
+                     loading="lazy">
+            </div>
         </div>
+
+        <!-- 下半部：完整數值表格，完全對應你提供的PR及分數資料 -->
         <div class="photo-place">
-            <!-- 呈現完整霍蘭德六型分數＋PR值，對應第一張截圖所有數據，等同照片資料完美顯示 -->
             <div class="result-data-card">
                 <div class="data-header">
-                    📋 霍蘭德職業性格剖面 (原始測評數據)
+                    📋 霍蘭德職業性格剖面 (完整評量數據)
                 </div>
                 <div class="six-grid">
                     <!-- 實用型 R -->
@@ -559,7 +620,7 @@
     <!-- 底部說明區塊 包含滑鼠懸浮提示 -->
     <div class="footer-note">
         <span>💡 滑鼠游標移至 <strong style="color:#c25d3a;">R</strong> · <strong style="color:#2a7f6e;">S</strong> · <strong style="color:#3a619b;">C</strong> 區塊，會向下延展顯示該職業性格完整說明。</span>
-        <span>📌 紅色框內為您的完整測驗結果表 (對應原始截圖資料)</span>
+        <span>📌 紅色框內包含「原始測驗截圖 (me.png)」與「詳細分數表格」，對應完整測驗資料。</span>
     </div>
 </div>
 
@@ -568,52 +629,42 @@
     const backBtn = document.getElementById('backToHomeBtn');
     if (backBtn) {
         backBtn.addEventListener('click', function() {
-            // 跳轉到 about.html 頁面（相同目錄下）
             window.location.href = 'about.html';
         });
     }
 
-    // 額外增加可選的觸摸屏友善：點擊卡片也可展開說明（對行動裝置加強，但原本hover在觸控上會有些不穩定）
-    // 為了提升行動裝置體驗，讓觸摸屏也能點擊展開/收合，但是避免干擾鼠標體驗，增加輕量級點擊支援。
-    // 做法：在每個 .code-block 加入點擊事件，如果螢幕寬度小於等於900px 或是觸控裝置，則切換active class 來控制面板。
-    // 確保原本的CSS hover仍然保留，但觸控點擊不會衝突且符合“滑鼠在R/S/C上面可以向下延展”的主需求，但在手機上也能方便瀏覽。
-    // 實現方式：監聽點擊事件，添加或移除類別 .expand-active 來控制 max-height，同時避免破壞原有 hover 效果。
-    // 但為了不破壞設計乾淨，用簡單的檢測：如果支援觸控或螢幕較小，允許點擊切換；但由於原本的 hover 在手機上效果可能不理想，補充友善邏輯。
-    // 用戶原本主要要求“鼠標在R S C上面的時候可以向下延展”，桌面完全滿足。行動裝置增加點擊體驗更完整，且不影響桌面滑鼠行為。
-    
+    // 觸控友善：允許在行動裝置點擊卡片展開/收合說明面板，保留桌機懸停效果
     function isTouchDevice() {
         return (('ontouchstart' in window) ||
             (navigator.maxTouchPoints > 0) ||
             (navigator.msMaxTouchPoints > 0));
     }
     
-    // 針對每個code-block 加入點擊切換支援 (僅當行動裝置或需要時，但也不會破壞桌面hover)
     const codeBlocks = document.querySelectorAll('.code-block');
     if (isTouchDevice() || window.innerWidth <= 900) {
         codeBlocks.forEach(block => {
-            // 避免雙重點擊衝突，記錄狀態
             block.addEventListener('click', function(e) {
-                // 避免點擊時連鎖干擾
                 e.stopPropagation();
-                // 檢查是否已經展開，如果已經展開就收回，反之展開
                 const panel = block.querySelector('.expand-panel');
                 if (panel) {
-                    // 如果目前是透過點擊展開的，則移除自訂樣式；否則添加
                     if (block.classList.contains('touch-expanded')) {
                         block.classList.remove('touch-expanded');
                         panel.style.maxHeight = '';
-                        // 移除行內樣式讓css hover恢復
+                        panel.style.padding = '';
+                        panel.style.borderTopColor = '';
                     } else {
-                        // 先關閉其他可能打開的
                         codeBlocks.forEach(other => {
                             if (other !== block && other.classList.contains('touch-expanded')) {
                                 other.classList.remove('touch-expanded');
                                 const otherPanel = other.querySelector('.expand-panel');
-                                if (otherPanel) otherPanel.style.maxHeight = '';
+                                if (otherPanel) {
+                                    otherPanel.style.maxHeight = '';
+                                    otherPanel.style.padding = '';
+                                    otherPanel.style.borderTopColor = '';
+                                }
                             }
                         });
                         block.classList.add('touch-expanded');
-                        // 設定 panel 高度等於 scrollHeight 實現展開
                         const height = panel.scrollHeight;
                         panel.style.maxHeight = height + 'px';
                         panel.style.padding = '20px 22px 26px 22px';
@@ -622,7 +673,6 @@
                 }
             });
         });
-        // 點擊頁面其他區域時收起所有展開面板 (可選)
         document.body.addEventListener('click', function(e) {
             if (!e.target.closest('.code-block')) {
                 codeBlocks.forEach(block => {
@@ -640,8 +690,6 @@
         });
     }
 
-    // 確保桌面hover時，若曾經觸控切換不會干擾；可選重置
-    // 另外若視窗大小改變時，若從手機變桌面，清除touch-expanded樣式
     window.addEventListener('resize', function() {
         if (window.innerWidth > 900 && !isTouchDevice()) {
             codeBlocks.forEach(block => {
@@ -658,8 +706,14 @@
         }
     });
     
-    // 控制台輸出驗證
-    console.log("霍蘭德結果頁面 | 繁體中文 | 回首頁按鈕指向 about.html | 寬版佈局 | 紅色框內完整展示測驗照片資料");
+    // 若圖片因路徑問題未能顯示，主控台提示友善 (可選)
+    const testImg = document.querySelector('.test-image');
+    if(testImg) {
+        testImg.addEventListener('error', function() {
+            console.log("圖片載入失敗: 請確認 'me.png' 是否與網頁在同目錄下，或提供正確路徑。");
+        });
+    }
+    console.log("霍蘭德結果頁面 | 圖片路徑已改為 me.png | 紅色框內包含截圖與數據表格 | 回首頁按鈕導向 about.html");
 </script>
 </body>
 </html>
