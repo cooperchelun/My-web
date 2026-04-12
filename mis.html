@@ -171,7 +171,7 @@ nav a:hover {
 .btn {
     display: inline-block;
     margin-top: 12px;
-    padding: 12px 24px;
+    padding: 12px 28px;
     background: #38bdf8;
     color: #0f172a;
     text-decoration: none;
@@ -234,23 +234,22 @@ footer {
 </head>
 <body>
 
-<!-- 導覽列 + 唯一一顆「返回 about.html」按鈕 (保留在上方導覽區) -->
+<!-- 導覽列 + 唯一一顆「返回 index.html」按鈕 (保留在上方導覽區) -->
 <nav>
     <h3>CheLun · MIS</h3>
     <div class="nav-links">
         <a href="#about">About</a>
         <a href="#job">Job</a>
         <a href="#resume">Resume</a>
-        <!-- 唯一返回按鈕：位於導覽列右側 -->
-        <a href="about.html" class="back-btn">🔙 返回 about.html</a>
+        <!-- 返回按鈕已修改為連接到 index.html -->
+        <a href="index.html" class="back-btn">🔙 返回 index.html</a>
     </div>
 </nav>
 
-<!-- 主畫面 Hero 區塊（已移除多餘返回按鈕） -->
+<!-- 主畫面 Hero 區塊 -->
 <div class="hero">
     <h1>張哲綸</h1>
     <p>資訊管理系｜MIS工程師｜何倫碼 RSC</p>
-    <!-- 此處不新增任何返回按鈕，保持簡潔 -->
 </div>
 
 <!-- About 自我介紹區塊 -->
@@ -272,33 +271,34 @@ footer {
     </div>
 </div>
 
-<!-- 工作介紹區塊 -->
+<!-- 工作介紹區塊 - 內容根據 104 職缺「後端軟體工程師(台中)」調整，按鈕連結至 mis.html -->
 <div class="section" id="job">
-    <h2>💼 MIS工作介紹</h2>
+    <h2>💼 相關工作介紹</h2>
     <div class="cards">
         <div class="card">
-            <h3>設備管理</h3>
-            <p>電腦、印表機安裝與維護，資產盤點與生命週期管理。</p>
+            <h3>後端開發與設計</h3>
+            <p>負責軟體架構分析、模組設計與程式撰寫 (C#/Node.js/Python/PHP)。</p>
         </div>
         <div class="card">
-            <h3>網路管理</h3>
-            <p>公司網路與伺服器設定，包含 VLAN、路由及無線網路。</p>
+            <h3>資料庫與 API</h3>
+            <p>具備 MySQL/SQL Server 經驗，撰寫 RESTful API 與技術文件。</p>
         </div>
         <div class="card">
-            <h3>資訊安全</h3>
-            <p>防毒、防火牆與系統安全，定期弱點掃描與備份演練。</p>
+            <h3>企業流程整合</h3>
+            <p>理解採購、銷售、生產管理等商業情境，參與 ERP/MES 開發。</p>
         </div>
         <div class="card">
-            <h3>技術支援</h3>
-            <p>協助員工解決電腦問題，遠端與現場支援，提升效率。</p>
+            <h3>AI 與創新應用</h3>
+            <p>探索 LLM 等前沿技術，協助團隊導入新工具，保持技術領先。</p>
         </div>
     </div>
-    <a class="btn" href="https://www.104.com.tw/" target="_blank">
-    🔍 前往104人力銀行
+    <!-- 按鈕已修改為連接到 mis.html -->
+    <a class="btn" href="mis.html">
+        🚀 前往 MIS 專業頁面 (mis.html)
     </a>
 </div>
 
-<!-- 履歷 / 自傳區塊（已移除內部多餘的返回按鈕） -->
+<!-- 履歷 / 自傳區塊 -->
 <div class="section" id="resume">
     <h2>📄 自傳履歷</h2>
     <div class="card" style="max-width: 100%;">
@@ -320,11 +320,10 @@ footer {
             <li>網路基礎 (OSI、TCP/IP、DNS、DHCP)</li>
             <li>電腦維修與硬體組裝 / Windows & Linux 基礎管理</li>
         </ul>
-        <!-- 此處不再放置返回按鈕，僅保留上方導覽列唯一一顆 -->
     </div>
 </div>
 
-<!-- footer 區域：完全沒有返回按鈕，僅保留版權資訊，符合「只留一顆在上面」 -->
+<!-- footer 區域：完全沒有返回按鈕，僅保留版權資訊 -->
 <footer>
     <p>© 2026 張哲綸 MIS作品集 | 以RSC精神打造穩定IT支援</p>
 </footer>
