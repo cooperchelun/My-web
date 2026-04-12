@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>張哲綸 | 個人網頁 · 整面風格</title>
+    <title>個人介紹 | 張哲綸</title>
     <style>
         * {
             margin: 0;
@@ -11,324 +11,418 @@
             box-sizing: border-box;
         }
 
+        /* 整面式布局：視口全高，背景完整覆蓋 */
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
         body {
-            background: #eef2fa;
-            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #0f172a;
             line-height: 1.5;
-            color: #1a2c3e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            min-height: 100vh;
         }
 
-        /* 整面主容器 */
-        .fullpage {
+        /* 主卡片：寬而通透，幾乎整面但留呼吸空間，內容自然滾動 */
+        .full-card {
+            max-width: 1280px;
             width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(0px);
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: all 0.2s;
+            height: auto;
+            max-height: 90vh;
+            scroll-behavior: smooth;
         }
 
-        /* 頁首區域 */
-        .hero {
-            background: linear-gradient(135deg, #1f2e3f 0%, #0f1e2c 100%);
-            padding: 3rem 5%;
+        /* 自訂滾動條美觀 */
+        .full-card::-webkit-scrollbar {
+            width: 6px;
+        }
+        .full-card::-webkit-scrollbar-track {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .full-card::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 10px;
+        }
+
+        /* 內容區寬敞內邊距 */
+        .content-spacious {
+            padding: 2.5rem 3rem 3rem 3rem;
+        }
+
+        /* ========= 頭部區域: 圓形頭像 + 名稱，左上角第一視覺 ========= */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #eef2ff;
+            padding-bottom: 2rem;
+        }
+
+        /* 圓形頭像 - 左上角重點突出 */
+        .avatar-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            flex-shrink: 0;
+            border: 4px solid white;
+            outline: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .avatar-circle:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #7c8ba0, #4b5563);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            border-bottom: none;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            width: 100%;
+            font-size: 2rem;
+            flex-direction: column;
+            gap: 0.3rem;
+            font-weight: 500;
         }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* 名稱區 */
+        .intro-headline {
+            flex: 1;
         }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            letter-spacing: -0.3px;
+        .intro-headline h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(120deg, #0f172a, #2d3e6e, #1e3a8a);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 0.5rem;
+        }
+        .tagline-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .main-role {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #334155;
+        }
+        .pill {
+            background: #e0e7ff;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        /* 整面佈局每塊之間間距舒適 */
+        .section {
+            margin-bottom: 2.5rem;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        /* 自我介紹文字區 */
+        .bio-card {
+            background: #f9fbfe;
+            padding: 1.5rem 1.8rem;
+            border-radius: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #1e293b;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #eef2ff;
+        }
+
+        /* 個人資訊純文字區塊（無格子/卡片樣式，乾淨文字） */
+        .contact-info {
+            background: #ffffff;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.8rem;
+            border: 1px solid #ecf3fa;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #1e2a3e;
+        }
+        .contact-line {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px dashed #e9edf2;
+        }
+        .contact-line:last-child {
+            border-bottom: none;
+        }
+        .contact-label {
+            font-weight: 700;
+            min-width: 85px;
+            color: #0f2b3d;
+            font-size: 1rem;
+        }
+        .contact-value {
+            color: #2c3e50;
             word-break: break-word;
         }
 
-        .hero h1 a {
-            color: #ffdd99;
-            text-decoration: none;
-            border-bottom: 3px solid #ffb347;
-            transition: 0.2s;
-        }
-
-        .hero h1 a:hover {
-            color: #fff0cf;
-            border-bottom-color: #ffaa33;
-        }
-
-        .hero-tagline {
-            font-size: 1.15rem;
-            opacity: 0.95;
-            margin-top: 1rem;
+        /* 返回首頁按鈕區域 (僅顯示「返回首頁」無檔案名稱) */
+        .action-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2edf7;
             display: flex;
-            flex-wrap: wrap;
+            justify-content: flex-start;
             align-items: center;
-            gap: 1rem;
-            row-gap: 0.8rem;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-
-        .hero-link-btn {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(4px);
-            padding: 0.5rem 1.2rem;
-            border-radius: 3rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid rgba(255, 180, 71, 0.5);
-            color: #ffefcf;
-            text-decoration: none;
+        .btn-home {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.95rem;
-        }
-
-        .hero-link-btn:hover {
-            background: #ffb347;
-            color: #1f2e3f;
-            border-color: #ffb347;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        }
-
-        .hero-tagline-text {
-            margin-right: 0.5rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        /* 內容區塊 */
-        .content {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 3rem 5%;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 2rem;
-            padding: 2rem 2.2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.3s;
-            border: 1px solid #ffffff70;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 22px 35px -14px rgba(0, 0, 0, 0.12);
-            background: #ffffff;
-        }
-
-        h2 {
-            font-size: 1.9rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            color: #1f3a48;
-            border-left: 8px solid #ffb347;
-            padding-left: 1rem;
-            letter-spacing: -0.2px;
-        }
-
-        .card-desc {
-            color: #2c4b62;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
-        /* 主按鈕 */
-        .main-btn {
-            background: linear-gradient(135deg, #ffb347 0%, #ff941a 100%);
+            gap: 0.7rem;
+            background: #0f172a;
+            color: white;
             padding: 0.85rem 2rem;
-            border-radius: 3rem;
-            font-size: 1.05rem;
+            border-radius: 60px;
             font-weight: 600;
+            font-size: 1rem;
             text-decoration: none;
-            color: white;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
+            transition: all 0.25s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             border: none;
-            box-shadow: 0 6px 14px rgba(255, 140, 0, 0.35);
-            letter-spacing: 0.5px;
+            cursor: pointer;
         }
-
-        .main-btn:hover {
-            background: linear-gradient(135deg, #ff9f2a 0%, #ff7b00 100%);
+        .btn-home:hover {
+            background: #1e293b;
             transform: translateY(-3px);
-            box-shadow: 0 12px 22px rgba(255, 100, 0, 0.4);
-            color: white;
+            box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.15);
+        }
+        .small-hint {
+            font-size: 0.75rem;
+            color: #6c86a3;
         }
 
-        .main-btn:active {
-            transform: translateY(1px);
-        }
-
-        /* 頁腳 */
-        footer {
-            background: #0f1a24;
-            padding: 2rem 5%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #bdd4e8;
-            border-top: none;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            margin-top: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #ffcd94;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-            border-bottom: 1px dotted #ffb34770;
-        }
-
-        .footer-links a:hover {
-            color: #ffb347;
-            border-bottom-color: #ffb347;
-        }
-
-        @media (max-width: 750px) {
-            .hero {
-                padding: 2rem 5%;
+        /* 響應式：手機與小平板 */
+        @media (max-width: 780px) {
+            body {
+                padding: 1rem;
             }
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-            .content {
-                padding: 2rem 5%;
-            }
-            .card {
+            .content-spacious {
                 padding: 1.5rem;
             }
-            h2 {
-                font-size: 1.6rem;
-            }
-            .main-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.95rem;
-            }
-            .hero-tagline {
+            .hero-section {
                 flex-direction: column;
                 align-items: flex-start;
+                gap: 1.2rem;
+            }
+            .avatar-circle {
+                width: 100px;
+                height: 100px;
+            }
+            .intro-headline h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .bio-card {
+                padding: 1rem;
+            }
+            .contact-info {
+                padding: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.6rem;
+            .btn-home {
+                width: 100%;
+                justify-content: center;
             }
-            .card-desc {
-                font-size: 0.95rem;
+            .contact-label {
+                min-width: 70px;
             }
         }
 
-        .highlight {
-            background: linear-gradient(120deg, #ffecb3 0%, #ffecb3 40%, transparent 80%);
-            padding: 0 4px;
-            border-radius: 8px;
-            font-weight: 600;
+        /* 優雅淡入動畫 */
+        .full-card {
+            animation: fadeSlideUp 0.45s ease-out;
+        }
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-<div class="fullpage">
-    <div class="hero">
-        <div class="hero-content">
-            <h1>
-                <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
-            </h1>
-            <div class="hero-tagline">
-                <span class="hero-tagline-text">📌 快捷連結：</span>
-                <a href="introduce.html" class="hero-link-btn">
-                    📄 我的資料
-                </a>
+<div class="full-card">
+    <div class="content-spacious">
+        <!-- 頭部：圓形頭像（左上角強烈視覺） + 姓名區域 -->
+        <div class="hero-section">
+            <div class="avatar-circle" id="avatarWrap">
+                <img class="avatar-img" src="photo.png" alt="個人照片" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="avatar-placeholder" style="display: none;">
+                    📷
+                    <span style="font-size: 12px;">photo.png</span>
+                </div>
+            </div>
+            <div class="intro-headline">
+                <h1>張哲綸 <span style="font-size: 1.5rem; font-weight: 500;">Chang Che-Lun</span></h1>
+                <div class="tagline-row">
+                    <span class="main-role">📚 靜宜大學 資訊管理學系 在學中</span>
+                    <span class="pill">熱愛編程</span>
+                    <span class="pill">持續學習</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 自我介紹區塊 (貼近學生身份) -->
+        <div class="section">
+            <div class="section-title">
+                <span>📄 自我簡介</span>
+            </div>
+            <div class="bio-card">
+                哈囉！我是張哲綸，目前就讀於靜宜大學資訊管理學系。<br><br>
+                從高中時期就對程式開發有著濃厚興趣，喜歡透過邏輯與創意解決生活中的問題。在大學期間接觸了網頁開發、資料庫設計以及專案管理，更進一步確信「寫程式」不僅是技術，更是一種實踐點子的方式。<br><br>
+                平時除了鑽研前後端技術之外，我也喜歡參與校內外黑客松、技術工作坊，累積實戰經驗。希望未來能成為一名優秀的軟體工程師，打造對人們有幫助的產品。感謝你來到我的個人頁面，歡迎與我交流！
+            </div>
+        </div>
+
+        <!-- 個人資訊：純文字顯示 電話 / email / 家鄉 (刪除不必要的卡片樣式，僅乾淨文字) -->
+        <div class="section">
+            <div class="section-title">
+                <span>📌 個人資訊</span>
+            </div>
+            <div class="contact-info">
+                <div class="contact-line">
+                    <span class="contact-label">📞 電話</span>
+                    <span class="contact-value">0909-028-128</span>
+                </div>
+                <div class="contact-line">
+                    <span class="contact-label">✉️ Email</span>
+                    <span class="contact-value">cooperchelun@gmail.com</span>
+                </div>
+                <div class="contact-line">
+                    <span class="contact-label">🏠 家鄉</span>
+                    <span class="contact-value">新北市 新店區</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 注意：⚙️ 核心技术栈 區塊已完全刪除，符合要求 -->
+
+        <!-- 返回首頁按鈕：只顯示「返回首頁」，不帶 about.html 路徑文字，連結指向首頁 (此處保留相對路徑首頁) -->
+        <div class="action-footer">
+            <a href="index.html" class="btn-home" id="homeButton">
+                🏠 返回首頁
+            </a>
+            <div class="small-hint">
+                ※ 點擊按鈕將返回網站首頁
             </div>
         </div>
     </div>
-
-    <div class="content">
-        <!-- 區塊1：興趣何倫碼測驗結果 -->
-        <div class="card">
-            <h2>📊 興趣何倫碼測驗結果</h2>
-            <div class="card-desc">
-                <span class="highlight">社會型｜事務型｜企業型</span> — 傾向與人群互動、組織規劃與執行事務。透過專業測驗探索職涯錨點。
-            </div>
-            <a href="RSC.html" class="main-btn">
-                📑 CCL's測驗結果
-            </a>
-        </div>
-
-        <!-- 區塊2：相關工作介紹 - 後端軟體工程師(台中) -->
-        <div class="card">
-            <h2>💼 相關工作介紹</h2>
-            <div class="card-desc">
-                🔧 <span class="highlight">後端軟體工程師(台中)｜艾創點數位股份有限公司</span><br>
-                負責後端架構設計與開發，運用 C# / Node.js / Python / PHP 等語言，參與企業核心系統與 AI 應用 (LLM) 建置。<br>
-                具備關聯式資料庫經驗、API 開發能力者佳。團隊重視溝通、邏輯與學習力，歡迎追求卓越的夥伴！
-            </div>
-            <a href="mis.html" class="main-btn">
-                🚀 探索後端工程師職務
-            </a>
-        </div>
-
-        <!-- 區塊3：標題改為「我的資料」，按鈕連結至 introduc.html (與快捷鍵相同) -->
-        <div class="card">
-            <h2>📄 我的資料</h2>
-            <div class="card-desc">
-                規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。展現跨域領導力與執行力。
-            </div>
-            <!-- 按鈕連結至 introduc.html，與快捷鍵目標一致 -->
-            <a href="introduce.html" class="main-btn">
-                📄 瀏覽我的詳細資料
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-inner">
-            <div>© 2025 張哲綸 · 資管二B | 整面式個人學習網頁 · 精簡聚焦</div>
-            <div class="footer-links">
-                <a href="#" id="backToTop">⬆ 回到頂部</a>
-            </div>
-        </div>
-    </footer>
 </div>
 
 <script>
     (function() {
-        const backBtn = document.getElementById('backToTop');
-        if (backBtn) {
-            backBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+        // 處理 photo.png 的優雅後備顯示（圓形頭像區域）
+        const avatarImg = document.querySelector('.avatar-img');
+        const placeholderDiv = document.querySelector('.avatar-placeholder');
+        
+        const showFallback = () => {
+            if (avatarImg && avatarImg.style.display !== 'none') {
+                avatarImg.style.display = 'none';
+                if (placeholderDiv) {
+                    placeholderDiv.style.display = 'flex';
+                    // 美觀佔位內容
+                    placeholderDiv.innerHTML = `
+                        <div style="text-align: center;">
+                            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="4" stroke="white" stroke-width="1.2" fill="#a0afc3"/>
+                                <path d="M5 20V19C5 15.6863 7.68629 13 11 13H13C16.3137 13 19 15.6863 19 19V20" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                            </svg>
+                            <p style="font-size: 10px; margin-top: 5px;">photo.png</p>
+                        </div>
+                    `;
+                    placeholderDiv.style.flexDirection = 'column';
+                    placeholderDiv.style.justifyContent = 'center';
+                }
+            }
+        };
+        
+        if (avatarImg) {
+            if (avatarImg.complete && avatarImg.naturalWidth === 0) {
+                showFallback();
+            } else {
+                avatarImg.addEventListener('error', showFallback);
+            }
+        } else if (placeholderDiv) {
+            placeholderDiv.style.display = 'flex';
+        }
+        
+        // 讓返回首頁按鈕單純導回首頁 (無關 about.html 字樣)
+        const homeBtn = document.querySelector('#homeButton');
+        if (homeBtn) {
+            // 確保連結是回到首頁（常見約定為 index.html 或 /）
+            // 若目前檔案就是在 index.html 環境，也可以設為 './' ，保留彈性
+            // 但使用者希望返回首頁，不用寫死 about.html
+            homeBtn.addEventListener('click', (e) => {
+                // 可選：單純讓預設行為發生，但 href 已經是 index.html
+                console.log('🏠 返回首頁');
             });
         }
-
-        console.log('✅ 頁面已更新：第三區塊標題改為「我的資料」，按鈕已連結至 introduc.html (與快捷鍵相同)。');
     })();
 </script>
 </body>
