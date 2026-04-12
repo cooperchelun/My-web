@@ -62,24 +62,46 @@
             border-bottom-color: #ffaa33;
         }
 
+        /* 新版 tagline — 僅保留「我的資料」按鈕（個人網頁已刪除） */
         .hero-tagline {
             font-size: 1.15rem;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-top: 1rem;
-            border-left: 4px solid #ffb347;
-            padding-left: 1.2rem;
-            background: rgba(0,0,0,0.2);
-            border-radius: 0 12px 12px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1rem;
+            row-gap: 0.8rem;
         }
 
-        .hero-tagline a {
-            color: #ffdd99;
-            border-bottom: 1px solid #ffb347;
+        .hero-link-btn {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.5rem 1.2rem;
+            border-radius: 3rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 180, 71, 0.5);
+            color: #ffefcf;
             text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
         }
 
-        .hero-tagline a:hover {
-            color: white;
+        .hero-link-btn:hover {
+            background: #ffb347;
+            color: #1f2e3f;
+            border-color: #ffb347;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .hero-tagline-text {
+            margin-right: 0.5rem;
+            font-weight: 400;
+            opacity: 0.9;
         }
 
         /* 內容區塊 — 整面但內部有舒適邊距，版面大器 */
@@ -214,7 +236,11 @@
                 font-size: 0.95rem;
             }
             .hero-tagline {
-                font-size: 0.95rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .hero-link-btn {
+                font-size: 0.9rem;
             }
         }
 
@@ -238,7 +264,6 @@
             font-weight: 600;
         }
 
-        /* 按鈕區動畫微交互 */
         .card .main-btn {
             margin-top: 0.2rem;
         }
@@ -246,21 +271,24 @@
 </head>
 <body>
 <div class="fullpage">
-    <!-- 頁首區域：整面寬度、深色質感，保留原標題連結與個人訊息 -->
+    <!-- 頁首區域：整面寬度、深色質感 -->
     <div class="hero">
         <div class="hero-content">
             <h1>
                 <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
             </h1>
+            <!-- 修改後：已刪除「個人網頁」連結，僅保留「我的資料」連至 introduc.html -->
             <div class="hero-tagline">
-                🌟 為了能夠學習更多網頁知識，且練習可以累積更多經驗，便有了這個
-                <a href="https://myself-plum.vercel.app/" target="_blank" rel="noopener noreferrer">個人網頁</a>
-                — 整面式設計，專注呈現我的生涯焦點。
+                <span class="hero-tagline-text">📌 快捷連結：</span>
+                <!-- 僅留下「我的資料」按鈕，連結到 introduc.html -->
+                <a href="introduc.html" class="hero-link-btn">
+                    📄 我的資料
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- 主要內容：維持四個核心區塊，每個區塊只有一個主要按鈕，版面整面寬廣 -->
+    <!-- 主要內容：保留三個核心區塊（已移除未來目標區塊），每個區塊只有一個主要按鈕 -->
     <div class="content">
         <!-- 區塊1：興趣何倫碼測驗結果 -->
         <div class="card">
@@ -280,45 +308,31 @@
             <div class="card-desc">
                 專案經理 / 專案管理師 PM — 為專案的成功策劃和執行負總責的人，整合資源、帶領團隊達成目標。
             </div>
-            <!-- 單一按鈕：連結至外部詳細介紹 104職缺頁面 (保持原目標實用) -->
+            <!-- 單一按鈕：連結至外部詳細介紹 104職缺頁面 -->
             <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="main-btn">
                 🔍 瞭解專案經理職務
             </a>
         </div>
 
-        <!-- 區塊3：未來目標 - 張哲綸的學習規劃 -->
-        <div class="card">
-            <h2>🎯 張哲綸's 未來目標</h2>
-            <div class="card-desc">
-                ✨ 「<strong>了解自己在做什麼</strong>」 — 不僅學習技術，更培養規劃思維，結合資管與管理實務，成為數位轉型推手。
-            </div>
-            <!-- 單一按鈕：連結至學習規劃筆記或課程地圖(中山資管課程地圖) -->
-            <a href="https://www.mis.nsysu.edu.tw/p/405-1102-267099,c151.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="main-btn">
-                📓 我的學習規劃與目標
-            </a>
-        </div>
-
-        <!-- 區塊4：自傳履歷 + 參與組織 - 整合版，只有一個主要按鈕 -->
+        <!-- 區塊3：自傳履歷 + 參與組織 - 整合版，只有一個主要按鈕 -->
         <div class="card">
             <h2>📄 自傳履歷 & 參與組織</h2>
             <div class="card-desc">
                 規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。展現跨域領導力與執行力。
             </div>
-            <!-- 單一按鈕：連結至 CakeResume 履歷平台 (原樣保留，使用者可自行更換) -->
+            <!-- 單一按鈕：連結至 CakeResume 履歷平台 -->
             <a href="https://www.cakeresume.com/" target="_blank" rel="noopener noreferrer" class="main-btn">
                 📄 檢視我的履歷 / 自傳
             </a>
         </div>
     </div>
 
-    <!-- 頁腳：整面延伸深色底，包含回到頂部、信箱、GitHub -->
+    <!-- 頁腳：僅保留「回到頂部」連結與版權資訊 -->
     <footer>
         <div class="footer-inner">
-            <div>© 2025 張哲綸 · 資管二B | 整面式個人學習網頁 · 簡潔聚焦</div>
+            <div>© 2025 張哲綸 · 資管二B | 整面式個人學習網頁 · 精簡聚焦</div>
             <div class="footer-links">
                 <a href="#" id="backToTop">⬆ 回到頂部</a>
-                <a href="mailto:jhelun@example.edu.tw">📧 寄信給我</a>
-                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">🐙 我的 GitHub</a>
             </div>
         </div>
     </footer>
@@ -335,8 +349,8 @@
             });
         }
 
-        // 可選：加入簡單的載入日誌，保留原精神並增加整面式觀察
-        console.log('✅ 整面風格個人網頁載入完成 — 張哲綸 | 四個核心區塊單一按鈕，版面寬廣大器，體驗流暢。');
+        // 載入日誌：說明已依照需求刪除快捷區域的「個人網頁」按鈕，僅保留「我的資料」連結至 introduc.html
+        console.log('✅ 整面風格網頁已更新：快捷連結區塊已刪除「個人網頁」按鈕，僅保留「我的資料」導向 introduc.html 。版面更加乾淨。');
 
         // 增加鍵盤輔助: 使用者體驗細節
         const allMainBtns = document.querySelectorAll('.main-btn');
@@ -353,3 +367,4 @@
 </script>
 </body>
 </html>
+
