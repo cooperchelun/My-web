@@ -18,7 +18,7 @@
             color: #1a2c3e;
         }
 
-        /* 整面主容器 — 無外距邊框，100%寬度，真正「整面」沉浸 */
+        /* 整面主容器 */
         .fullpage {
             width: 100%;
             max-width: 100%;
@@ -27,7 +27,7 @@
             background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
         }
 
-        /* 頁首區域 — 整面寬度，無邊界限制 */
+        /* 頁首區域 */
         .hero {
             background: linear-gradient(135deg, #1f2e3f 0%, #0f1e2c 100%);
             padding: 3rem 5%;
@@ -62,7 +62,6 @@
             border-bottom-color: #ffaa33;
         }
 
-        /* 新版 tagline — 僅保留「我的資料」按鈕（個人網頁已刪除） */
         .hero-tagline {
             font-size: 1.15rem;
             opacity: 0.95;
@@ -104,14 +103,13 @@
             opacity: 0.9;
         }
 
-        /* 內容區塊 — 整面但內部有舒適邊距，版面大器 */
+        /* 內容區塊 */
         .content {
             max-width: 1300px;
             margin: 0 auto;
             padding: 3rem 5%;
         }
 
-        /* 卡片採用現代風格，無邊框陰影柔和，整面流暢 */
         .card {
             background: rgba(255, 255, 255, 0.98);
             border-radius: 2rem;
@@ -120,7 +118,6 @@
             box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
             transition: transform 0.2s ease, box-shadow 0.3s;
             border: 1px solid #ffffff70;
-            backdrop-filter: blur(0px);
         }
 
         .card:hover {
@@ -147,7 +144,7 @@
             font-weight: 500;
         }
 
-        /* 主按鈕 — 更顯眼，符合整面大氣 */
+        /* 主按鈕 */
         .main-btn {
             background: linear-gradient(135deg, #ffb347 0%, #ff941a 100%);
             padding: 0.85rem 2rem;
@@ -176,7 +173,7 @@
             transform: translateY(1px);
         }
 
-        /* 頁腳 — 整面延伸，寬廣舒適 */
+        /* 頁腳 */
         footer {
             background: #0f1a24;
             padding: 2rem 5%;
@@ -214,7 +211,6 @@
             border-bottom-color: #ffb347;
         }
 
-        /* 響應式調整 — 依然保持整面流暢感 */
         @media (max-width: 750px) {
             .hero {
                 padding: 2rem 5%;
@@ -239,9 +235,6 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
-            .hero-link-btn {
-                font-size: 0.9rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -251,36 +244,25 @@
             .card-desc {
                 font-size: 0.95rem;
             }
-            .footer-links {
-                gap: 18px;
-            }
         }
 
-        /* 裝飾細節 */
         .highlight {
             background: linear-gradient(120deg, #ffecb3 0%, #ffecb3 40%, transparent 80%);
             padding: 0 4px;
             border-radius: 8px;
             font-weight: 600;
         }
-
-        .card .main-btn {
-            margin-top: 0.2rem;
-        }
     </style>
 </head>
 <body>
 <div class="fullpage">
-    <!-- 頁首區域：整面寬度、深色質感 -->
     <div class="hero">
         <div class="hero-content">
             <h1>
                 <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
             </h1>
-            <!-- 修改後：已刪除「個人網頁」連結，僅保留「我的資料」連至 introduc.html -->
             <div class="hero-tagline">
                 <span class="hero-tagline-text">📌 快捷連結：</span>
-                <!-- 僅留下「我的資料」按鈕，連結到 introduc.html -->
                 <a href="introduc.html" class="hero-link-btn">
                     📄 我的資料
                 </a>
@@ -288,7 +270,6 @@
         </div>
     </div>
 
-    <!-- 主要內容：保留三個核心區塊（已移除未來目標區塊），每個區塊只有一個主要按鈕 -->
     <div class="content">
         <!-- 區塊1：興趣何倫碼測驗結果 -->
         <div class="card">
@@ -296,38 +277,37 @@
             <div class="card-desc">
                 <span class="highlight">社會型｜事務型｜企業型</span> — 傾向與人群互動、組織規劃與執行事務。透過專業測驗探索職涯錨點。
             </div>
-            <!-- 單一按鈕：CCL's測驗結果，連結至 RSC.html -->
             <a href="RSC.html" class="main-btn">
                 📑 CCL's測驗結果
             </a>
         </div>
 
-        <!-- 區塊2：相關工作介紹 - 專案經理／PM -->
+        <!-- 區塊2：相關工作介紹 - 更新為「後端軟體工程師(台中)」，按鈕連結至 mis.html -->
         <div class="card">
             <h2>💼 相關工作介紹</h2>
             <div class="card-desc">
-                專案經理 / 專案管理師 PM — 為專案的成功策劃和執行負總責的人，整合資源、帶領團隊達成目標。
+                🔧 <span class="highlight">後端軟體工程師(台中)｜艾創點數位股份有限公司</span><br>
+                負責後端架構設計與開發，運用 C# / Node.js / Python / PHP 等語言，參與企業核心系統與 AI 應用 (LLM) 建置。<br>
+                具備關聯式資料庫經驗、API 開發能力者佳。團隊重視溝通、邏輯與學習力，歡迎追求卓越的夥伴！
             </div>
-            <!-- 單一按鈕：連結至外部詳細介紹 104職缺頁面 -->
-            <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="main-btn">
-                🔍 瞭解專案經理職務
+            <!-- 按鈕已修改為連至 mis.html -->
+            <a href="mis.html" class="main-btn">
+                🚀 探索後端工程師職務
             </a>
         </div>
 
-        <!-- 區塊3：自傳履歷 + 參與組織 - 整合版，只有一個主要按鈕 -->
+        <!-- 區塊3：自傳履歷 + 參與組織 -->
         <div class="card">
             <h2>📄 自傳履歷 & 參與組織</h2>
             <div class="card-desc">
                 規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。展現跨域領導力與執行力。
             </div>
-            <!-- 單一按鈕：連結至 CakeResume 履歷平台 -->
             <a href="https://www.cakeresume.com/" target="_blank" rel="noopener noreferrer" class="main-btn">
                 📄 檢視我的履歷 / 自傳
             </a>
         </div>
     </div>
 
-    <!-- 頁腳：僅保留「回到頂部」連結與版權資訊 -->
     <footer>
         <div class="footer-inner">
             <div>© 2025 張哲綸 · 資管二B | 整面式個人學習網頁 · 精簡聚焦</div>
@@ -340,7 +320,6 @@
 
 <script>
     (function() {
-        // 回到頂部功能 (平滑滾動)
         const backBtn = document.getElementById('backToTop');
         if (backBtn) {
             backBtn.addEventListener('click', (e) => {
@@ -349,22 +328,8 @@
             });
         }
 
-        // 載入日誌：說明已依照需求刪除快捷區域的「個人網頁」按鈕，僅保留「我的資料」連結至 introduc.html
-        console.log('✅ 整面風格網頁已更新：快捷連結區塊已刪除「個人網頁」按鈕，僅保留「我的資料」導向 introduc.html 。版面更加乾淨。');
-
-        // 增加鍵盤輔助: 使用者體驗細節
-        const allMainBtns = document.querySelectorAll('.main-btn');
-        allMainBtns.forEach(btn => {
-            btn.addEventListener('focus', () => {
-                btn.style.outline = '3px solid #ffb347';
-                btn.style.outlineOffset = '3px';
-            });
-            btn.addEventListener('blur', () => {
-                btn.style.outline = '';
-            });
-        });
+        console.log('✅ 頁面已更新：相關工作介紹按鈕現在連結至 mis.html，職務說明更新為「後端軟體工程師(台中)」。');
     })();
 </script>
 </body>
 </html>
-
