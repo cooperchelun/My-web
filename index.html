@@ -258,7 +258,7 @@
             </h1>
             <div class="hero-tagline">
                 <span class="hero-tagline-text">📌 快捷連結：</span>
-                <!-- 修正：指向正確的 introduce.html 個人資料頁面 -->
+                <!-- 指向正確的 introduce.html 個人資料頁面 -->
                 <a href="introduce.html" class="hero-link-btn">
                     📄 我的資料
                 </a>
@@ -289,13 +289,14 @@
             </a>
         </div>
 
+        <!-- 修改處：標題改為「📄 有關於我」，描述改為簡短自我介紹，連結指向 introduce.html -->
         <div class="card">
-            <h2>📄 自傳履歷 & 參與組織</h2>
+            <h2>📄 有關於我</h2>
             <div class="card-desc">
-                規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。展現跨域領導力與執行力。
+                我是張哲綸，目前就讀靜宜大學資訊管理學系二年級。樂於學習新技術，積極參與團隊合作，對軟體開發與資料分析充滿熱忱。
             </div>
-            <a href="https://www.cakeresume.com/" target="_blank" rel="noopener noreferrer" class="main-btn">
-                📄 檢視我的履歷 / 自傳
+            <a href="introduce.html" class="main-btn">
+                📄 認識更多關於我
             </a>
         </div>
     </div>
@@ -319,8 +320,8 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-        // 修正控制台輸出訊息，因為現在檔案已經是 index.html
-        console.log('✅ index.html 已確認：快捷按鈕連結至正確的 introduce.html，且所有內部連結皆指向對應檔案 (RSC.html, mis.html)');
+        // 控制台輸出確認：第三個卡片已改為「有關於我」並連結至 introduce.html
+        console.log('✅ 已完成修改：第三卡片標題改為「📄 有關於我」，說明文字改為簡短自我介紹，按鈕連結指向 introduce.html');
     })();
 </script>
 </body>
