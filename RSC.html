@@ -17,22 +17,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', system-ui, -apple-system, 'PingFang TC', 'Microsoft YaHei', sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', system-ui, sans-serif;
             padding: 30px 40px;
         }
 
-        /* 主卡片容器 — 寬版設計 */
         .result-card {
             max-width: 1200px;
             width: 100%;
             background: #ffffff;
             border-radius: 48px;
-            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
             overflow: hidden;
-            transition: all 0.2s ease;
         }
 
-        /* 頭部簡潔說明 */
         .card-header {
             padding: 32px 42px 20px 42px;
             border-bottom: 1px solid #f0f2f5;
@@ -50,17 +47,14 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: -0.3px;
         }
 
         .header-text p {
             color: #5b6e8c;
             margin-top: 8px;
             font-size: 0.98rem;
-            font-weight: 500;
         }
 
-        /* 回首頁按鈕 */
         .back-home-btn {
             background: #f0f4fa;
             border: none;
@@ -70,26 +64,18 @@
             font-weight: 600;
             color: #2c3e66;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: 0.25s;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            font-family: inherit;
         }
 
         .back-home-btn:hover {
             background: #2c3e66;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(44, 62, 102, 0.2);
         }
 
-        .back-home-btn:active {
-            transform: translateY(1px);
-        }
-
-        /* 三大核心區域 — R / S / C 橫向寬敞佈局 */
         .tri-code-section {
             display: flex;
             justify-content: space-between;
@@ -98,23 +84,20 @@
             flex-wrap: wrap;
         }
 
-        /* 每一個類型塊 */
         .code-block {
             flex: 1;
             min-width: 200px;
             background: #fefefe;
             border-radius: 32px;
-            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: 0.25s;
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.03);
             border: 1px solid #eef2f8;
         }
 
-        /* 頂部代表字母區域 (R / S / C 大標識) */
         .code-letter {
             text-align: center;
             padding: 28px 16px 20px 16px;
             cursor: pointer;
-            transition: background 0.2s;
             border-radius: 32px 32px 0 0;
             background: #ffffff;
         }
@@ -122,35 +105,26 @@
         .big-letter {
             font-size: 4.8rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            display: inline-block;
-            background: #f1f5f9;
             width: 110px;
             height: 110px;
-            line-height: 1.2;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
             transition: all 0.2s;
         }
 
-        /* 各自專屬字母顏色 */
         .code-block[data-type="R"] .big-letter {
             background: #ffe8e0;
             color: #c25d3a;
-            box-shadow: 0 4px 12px rgba(194, 93, 58, 0.15);
         }
         .code-block[data-type="S"] .big-letter {
             background: #e0f0ea;
             color: #2a7f6e;
-            box-shadow: 0 4px 12px rgba(42, 127, 110, 0.12);
         }
         .code-block[data-type="C"] .big-letter {
             background: #eaeefb;
             color: #3a619b;
-            box-shadow: 0 4px 12px rgba(58, 97, 155, 0.12);
         }
 
         .type-name {
@@ -160,7 +134,6 @@
             color: #1f2a44;
         }
 
-        /* 分數與 PR 值 */
         .score-pr {
             display: flex;
             justify-content: center;
@@ -177,36 +150,29 @@
             border-radius: 40px;
         }
 
-        /* 延展面板 (預設隱藏，hover時展開) */
         .expand-panel {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.3s ease;
+            transition: max-height 0.4s ease-out;
             background: #fafcff;
             border-radius: 0 0 32px 32px;
-            margin-top: 0px;
-            border-top: 1px solid transparent;
         }
 
-        /* hover 時展開 */
         .code-block:hover {
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.18);
             transform: translateY(-4px);
-            border-color: #dce5f0;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.18);
         }
 
         .code-block:hover .expand-panel {
             max-height: 200px;
             padding: 20px 22px 26px 22px;
-            border-top-color: #e9edf4;
+            border-top: 1px solid #e9edf4;
         }
 
-        /* 說明文字樣式 */
         .desc-title {
             font-weight: 700;
             font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
             color: #6c7e9e;
             margin-bottom: 12px;
         }
@@ -215,7 +181,6 @@
             font-size: 0.95rem;
             line-height: 1.5;
             color: #2c3f5c;
-            font-weight: 500;
         }
 
         .desc-sub {
@@ -226,122 +191,32 @@
             padding-left: 12px;
         }
 
-        /* 個性化邊框 */
-        .code-block[data-type="R"] .desc-sub {
-            border-left-color: #c25d3a;
-        }
-        .code-block[data-type="S"] .desc-sub {
-            border-left-color: #2a7f6e;
-        }
-        .code-block[data-type="C"] .desc-sub {
-            border-left-color: #3a619b;
-        }
+        .code-block[data-type="R"] .desc-sub { border-left-color: #c25d3a; }
+        .code-block[data-type="S"] .desc-sub { border-left-color: #2a7f6e; }
+        .code-block[data-type="C"] .desc-sub { border-left-color: #3a619b; }
 
-        /* —————— 紅色框框區域 (放你的結果照片 + 完整數據) —————— 寬版適配 */
-        .photo-redframe {
+        /* 數據表格區域（取代原本的破圖） */
+        .data-table-section {
             margin: 16px 42px 32px 42px;
             background: #fff5f5;
             border: 3px solid #e53e3e;
             border-radius: 36px;
             padding: 20px 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            transition: all 0.2s;
-            box-shadow: 0 6px 16px rgba(229, 62, 62, 0.12);
-        }
-
-        /* 上半部：標題與圖像區域 */
-        .photo-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .photo-label {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            color: #b91c1c;
-            background: rgba(229, 62, 62, 0.08);
-            padding: 10px 22px;
-            border-radius: 60px;
-            font-size: 1rem;
-        }
-        .photo-label span {
-            font-size: 1.6rem;
-        }
-
-        /* 截圖容器：美觀呈現你提供的圖片 (me.png) */
-        .screenshot-container {
-            flex: 1;
-            min-width: 240px;
-            background: #fffaf2;
-            border-radius: 28px;
-            padding: 12px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
-            border: 1px solid #ffe0cc;
-            transition: transform 0.2s ease;
-        }
-        .screenshot-container:hover {
-            transform: scale(1.01);
-            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.08);
-        }
-        .screenshot-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #b85c1a;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-left: 3px solid #e53e3e;
-            padding-left: 12px;
-        }
-        .test-image {
-            width: 100%;
-            border-radius: 20px;
-            display: block;
-            background: #f4efe7;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            transition: all 0.2s;
-            border: 1px solid #f0d5c0;
-        }
-        /* 讓圖片響應式且保持自然比例 */
-        .test-image {
-            max-height: 280px;
-            object-fit: contain;
-            width: auto;
-            margin: 0 auto;
-        }
-        /* 結果表格卡片樣式 (精緻寬版) */
-        .result-data-card {
-            width: 100%;
-            background: #fffef7;
-            border-radius: 28px;
-            padding: 16px 20px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
-            transition: all 0.2s;
         }
 
         .data-header {
             font-weight: 700;
-            font-size: 0.9rem;
-            color: #a51b1b;
-            border-left: 4px solid #e53e3e;
+            font-size: 1.1rem;
+            color: #b91c1c;
+            margin-bottom: 20px;
             padding-left: 14px;
-            margin-bottom: 18px;
+            border-left: 4px solid #e53e3e;
         }
 
         .six-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 14px 20px;
-            background: #fefaf5;
-            border-radius: 28px;
-            padding: 8px 6px;
         }
 
         .score-item {
@@ -349,11 +224,9 @@
             justify-content: space-between;
             align-items: center;
             background: #ffffff;
-            padding: 10px 16px;
+            padding: 12px 18px;
             border-radius: 48px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
             font-weight: 500;
-            transition: all 0.15s;
         }
 
         .score-item span:first-child {
@@ -362,8 +235,7 @@
         }
 
         .score-item span:last-child strong {
-            font-size: 1.1rem;
-            margin-right: 4px;
+            font-size: 1.2rem;
             color: #1f3a5f;
         }
 
@@ -373,7 +245,7 @@
         }
 
         .footer-hint {
-            font-size: 0.72rem;
+            font-size: 0.75rem;
             color: #b37b48;
             text-align: center;
             border-top: 1px dashed #ffe0cc;
@@ -381,7 +253,6 @@
             margin-top: 12px;
         }
 
-        /* 底部區 */
         .footer-note {
             padding: 20px 42px 36px 42px;
             border-top: 1px solid #ecf3fa;
@@ -394,326 +265,91 @@
             flex-wrap: wrap;
         }
 
-        /* 響應式寬螢幕更舒適 */
-        @media (min-width: 1400px) {
-            .result-card {
-                max-width: 1300px;
-            }
-            .tri-code-section {
-                gap: 36px;
-            }
-            .big-letter {
-                width: 120px;
-                height: 120px;
-                font-size: 5rem;
-            }
-        }
-
         @media (max-width: 900px) {
-            body {
-                padding: 20px 24px;
-            }
-            .tri-code-section {
-                flex-direction: column;
-                gap: 20px;
-                padding: 24px 28px;
-            }
-            .card-header {
-                padding: 24px 28px 16px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .photo-redframe {
-                margin: 12px 28px 28px 28px;
-                padding: 20px;
-            }
-            .photo-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .big-letter {
-                width: 85px;
-                height: 85px;
-                font-size: 3.8rem;
-            }
-            .six-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            .code-block:hover .expand-panel {
-                max-height: 240px;
-            }
+            body { padding: 20px 24px; }
+            .tri-code-section { flex-direction: column; gap: 20px; padding: 24px 28px; }
+            .six-grid { grid-template-columns: repeat(2, 1fr); }
+            .data-table-section { margin: 12px 28px 28px 28px; }
         }
 
         @media (max-width: 550px) {
-            .six-grid {
-                grid-template-columns: 1fr;
-            }
-            .score-pr {
-                gap: 12px;
-                flex-wrap: wrap;
-            }
-            .back-home-btn {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
-        }
-
-        /* 輔助 */
-        .back-home-btn i {
-            font-style: normal;
-            font-size: 1.2rem;
-        }
-        /* 圖片預設優雅 */
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
+            .six-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
 <div class="result-card">
     <div class="card-header">
         <div class="header-text">
             <h1>✨ 我的何倫碼測試結果 ✨</h1>
             <p>實用型 · 社會型 · 事務型 ｜ 你的前三碼傾向組合</p>
         </div>
-        <!-- 回首頁 about.html 按鈕 -->
-        <button class="back-home-btn" id="backToHomeBtn">
-            <i>🏠</i> 回首頁界面
-        </button>
+        <button class="back-home-btn" id="backToHomeBtn">🏠 回首頁界面</button>
     </div>
 
-    <!-- R / S / C 三個主要區塊 類似第二張圖三個大標識 -->
     <div class="tri-code-section">
-        <!-- 實用型 R -->
         <div class="code-block" data-type="R">
             <div class="code-letter">
                 <div class="big-letter">R</div>
                 <div class="type-name">實用型</div>
-                <div class="score-pr">
-                    <span>⚡ 傾向 9</span>
-                    <span>📊 PR 94</span>
-                </div>
+                <div class="score-pr"><span>⚡ 傾向 9</span><span>📊 PR 94</span></div>
             </div>
-            <!-- 向下延展面板 : 滑鼠懸浮時出現，說明R代表什麼 -->
             <div class="expand-panel">
                 <div class="desc-title">🔧 何倫碼 · R 型</div>
-                <div class="desc-text">
-                    <strong>實用型 (Realistic)</strong> — 務實、擅長動手操作，喜歡工具、機械、戶外活動。
-                </div>
-                <div class="desc-sub">
-                    典型職業：工程師、技師、建築師、機械維修、職能治療師。
-                </div>
+                <div class="desc-text">務實、擅長動手操作，喜歡工具、機械、戶外活動。</div>
+                <div class="desc-sub">典型職業：工程師、技師、建築師、機械維修。</div>
             </div>
         </div>
-
-        <!-- 社會型 S -->
         <div class="code-block" data-type="S">
             <div class="code-letter">
                 <div class="big-letter">S</div>
                 <div class="type-name">社會型</div>
-                <div class="score-pr">
-                    <span>⚡ 傾向 8</span>
-                    <span>📊 PR 79</span>
-                </div>
+                <div class="score-pr"><span>⚡ 傾向 8</span><span>📊 PR 79</span></div>
             </div>
             <div class="expand-panel">
                 <div class="desc-title">🤝 何倫碼 · S 型</div>
-                <div class="desc-text">
-                    <strong>社會型 (Social)</strong> — 樂於助人、擅長溝通與合作，喜歡教育、諮商、醫療服務。
-                </div>
-                <div class="desc-sub">
-                    典型職業：教師、心理諮商師、護理師、社工、人力資源。
-                </div>
+                <div class="desc-text">樂於助人、擅長溝通與合作，喜歡教育、諮商、醫療服務。</div>
+                <div class="desc-sub">典型職業：教師、心理師、護理師、社工、人資。</div>
             </div>
         </div>
-
-        <!-- 事務型 C -->
         <div class="code-block" data-type="C">
             <div class="code-letter">
                 <div class="big-letter">C</div>
                 <div class="type-name">事務型</div>
-                <div class="score-pr">
-                    <span>⚡ 傾向 7</span>
-                    <span>📊 PR 74</span>
-                </div>
+                <div class="score-pr"><span>⚡ 傾向 7</span><span>📊 PR 74</span></div>
             </div>
             <div class="expand-panel">
                 <div class="desc-title">📁 何倫碼 · C 型</div>
-                <div class="desc-text">
-                    <strong>事務型 (Conventional)</strong> — 細心、有條理，擅長文書、資料處理與組織架構。
-                </div>
-                <div class="desc-sub">
-                    典型職業：行政專員、會計、資料分析師、秘書、銀行櫃員。
-                </div>
+                <div class="desc-text">細心、有條理，擅長文書、資料處理與組織架構。</div>
+                <div class="desc-sub">典型職業：行政專員、會計、資料分析師、秘書。</div>
             </div>
         </div>
     </div>
 
-    <!-- ★ 紅色框框區域：完整放置你的結果照片 (me.png) + 測驗數據表格（對應原始截圖）★ -->
-    <div class="photo-redframe">
-        <!-- 上半區塊：照片標題 & 實際截圖影像 (現在指向 me.png) -->
-        <div class="photo-header">
-            <div class="photo-label">
-                <span>📸</span> 你的測驗結果 · 原始截圖
-            </div>
-            <!-- 使用 me.png 作為圖片來源 -->
-            <div class="screenshot-container">
-                <div class="screenshot-title">
-                    <span>🖼️</span> 霍蘭德職業性格剖面 (測驗畫面)
-                </div>
-                <img class="test-image" src="me.png" 
-                     alt="霍蘭德測驗結果截圖 - 實用型R 社會型S 事務型C 完整分數PR (me.png)"
-                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22400%22%20height%3D%22200%22%20viewBox%3D%220%200%20400%20200%22%3E%3Crect%20width%3D%22400%22%20height%3D%22200%22%20fill%3D%22%23f7ede8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%23b85c1a%22%20font-size%3D%2214%22%3E%E6%AA%94%E6%A1%88%20me.png%20%E6%9C%AA%E6%89%BE%E5%88%B0%EF%BC%8C%E8%AB%8B%E7%A2%BA%E8%AA%8D%E5%9C%96%E7%89%87%E8%B7%AF%E5%BE%91%3C%2Ftext%3E%3C%2Fsvg%3E'; this.style.objectFit='cover';"
-                     loading="lazy">
-            </div>
+    <!-- 數據表格區塊（取代原本的 me.png 圖片） -->
+    <div class="data-table-section">
+        <div class="data-header">📋 霍蘭德職業性格剖面 (完整評量數據)</div>
+        <div class="six-grid">
+            <div class="score-item" style="background:#fff2ec;"><span>🔧 實用型 R</span><span><strong>9</strong> <span class="pr-text">(PR94)</span></span></div>
+            <div class="score-item" style="background:#e3f5ef;"><span>🤝 社會型 S</span><span><strong>8</strong> <span class="pr-text">(PR79)</span></span></div>
+            <div class="score-item" style="background:#eaeefb;"><span>📂 事務型 C</span><span><strong>7</strong> <span class="pr-text">(PR74)</span></span></div>
+            <div class="score-item" style="background:#f5f3ff;"><span>🔬 研究型 I</span><span><strong>6</strong> <span class="pr-text">(PR69)</span></span></div>
+            <div class="score-item" style="background:#fef0fa;"><span>🎨 藝術型 A</span><span><strong>4</strong> <span class="pr-text">(PR52)</span></span></div>
+            <div class="score-item" style="background:#ffece5;"><span>📈 企業型 E</span><span><strong>2</strong> <span class="pr-text">(PR32)</span></span></div>
         </div>
-
-        <!-- 下半部：完整數值表格，完全對應你提供的PR及分數資料 -->
-        <div class="photo-place">
-            <div class="result-data-card">
-                <div class="data-header">
-                    📋 霍蘭德職業性格剖面 (完整評量數據)
-                </div>
-                <div class="six-grid">
-                    <!-- 實用型 R -->
-                    <div class="score-item" style="background: #fff2ec;">
-                        <span>🔧 實用型 R</span>
-                        <span><strong>9</strong> <span class="pr-text">(PR94)</span></span>
-                    </div>
-                    <!-- 社會型 S -->
-                    <div class="score-item" style="background: #e3f5ef;">
-                        <span>🤝 社會型 S</span>
-                        <span><strong>8</strong> <span class="pr-text">(PR79)</span></span>
-                    </div>
-                    <!-- 事務型 C -->
-                    <div class="score-item" style="background: #eaeefb;">
-                        <span>📂 事務型 C</span>
-                        <span><strong>7</strong> <span class="pr-text">(PR74)</span></span>
-                    </div>
-                    <!-- 研究型 I -->
-                    <div class="score-item" style="background: #f5f3ff;">
-                        <span>🔬 研究型 I</span>
-                        <span><strong>6</strong> <span class="pr-text">(PR69)</span></span>
-                    </div>
-                    <!-- 藝術型 A -->
-                    <div class="score-item" style="background: #fef0fa;">
-                        <span>🎨 藝術型 A</span>
-                        <span><strong>4</strong> <span class="pr-text">(PR52)</span></span>
-                    </div>
-                    <!-- 企業型 E -->
-                    <div class="score-item" style="background: #ffece5;">
-                        <span>📈 企業型 E</span>
-                        <span><strong>2</strong> <span class="pr-text">(PR32)</span></span>
-                    </div>
-                </div>
-                <div class="footer-hint">
-                    ⚡ 最高三碼：R (實用型) > S (社會型) > C (事務型) ｜ 霍蘭德代碼 <strong>RSC</strong>
-                </div>
-            </div>
-        </div>
+        <div class="footer-hint">⚡ 最高三碼：R (實用型) > S (社會型) > C (事務型) ｜ 霍蘭德代碼 <strong>RSC</strong></div>
     </div>
 
-    <!-- 底部說明區塊 包含滑鼠懸浮提示 -->
     <div class="footer-note">
-        <span>💡 滑鼠游標移至 <strong style="color:#c25d3a;">R</strong> · <strong style="color:#2a7f6e;">S</strong> · <strong style="color:#3a619b;">C</strong> 區塊，會向下延展顯示該職業性格完整說明。</span>
-        <span>📌 紅色框內包含「原始測驗截圖 (me.png)」與「詳細分數表格」，對應完整測驗資料。</span>
+        <span>💡 滑鼠移至 R / S / C 區塊，會顯示完整職業說明。</span>
+        <span>📌 紅色框內為完整測驗數據表格。</span>
     </div>
 </div>
 
 <script>
-    // 回首頁 about.html 功能
-    const backBtn = document.getElementById('backToHomeBtn');
-    if (backBtn) {
-        backBtn.addEventListener('click', function() {
-            window.location.href = 'about.html';
-        });
-    }
-
-    // 觸控友善：允許在行動裝置點擊卡片展開/收合說明面板，保留桌機懸停效果
-    function isTouchDevice() {
-        return (('ontouchstart' in window) ||
-            (navigator.maxTouchPoints > 0) ||
-            (navigator.msMaxTouchPoints > 0));
-    }
-    
-    const codeBlocks = document.querySelectorAll('.code-block');
-    if (isTouchDevice() || window.innerWidth <= 900) {
-        codeBlocks.forEach(block => {
-            block.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const panel = block.querySelector('.expand-panel');
-                if (panel) {
-                    if (block.classList.contains('touch-expanded')) {
-                        block.classList.remove('touch-expanded');
-                        panel.style.maxHeight = '';
-                        panel.style.padding = '';
-                        panel.style.borderTopColor = '';
-                    } else {
-                        codeBlocks.forEach(other => {
-                            if (other !== block && other.classList.contains('touch-expanded')) {
-                                other.classList.remove('touch-expanded');
-                                const otherPanel = other.querySelector('.expand-panel');
-                                if (otherPanel) {
-                                    otherPanel.style.maxHeight = '';
-                                    otherPanel.style.padding = '';
-                                    otherPanel.style.borderTopColor = '';
-                                }
-                            }
-                        });
-                        block.classList.add('touch-expanded');
-                        const height = panel.scrollHeight;
-                        panel.style.maxHeight = height + 'px';
-                        panel.style.padding = '20px 22px 26px 22px';
-                        panel.style.borderTopColor = '#e9edf4';
-                    }
-                }
-            });
-        });
-        document.body.addEventListener('click', function(e) {
-            if (!e.target.closest('.code-block')) {
-                codeBlocks.forEach(block => {
-                    if (block.classList.contains('touch-expanded')) {
-                        block.classList.remove('touch-expanded');
-                        const panel = block.querySelector('.expand-panel');
-                        if (panel) {
-                            panel.style.maxHeight = '';
-                            panel.style.padding = '';
-                            panel.style.borderTopColor = '';
-                        }
-                    }
-                });
-            }
-        });
-    }
-
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 900 && !isTouchDevice()) {
-            codeBlocks.forEach(block => {
-                if (block.classList.contains('touch-expanded')) {
-                    block.classList.remove('touch-expanded');
-                    const panel = block.querySelector('.expand-panel');
-                    if (panel) {
-                        panel.style.maxHeight = '';
-                        panel.style.padding = '';
-                        panel.style.borderTopColor = '';
-                    }
-                }
-            });
-        }
+    document.getElementById('backToHomeBtn').addEventListener('click', function() {
+        window.location.href = 'about.html';
     });
-    
-    // 若圖片因路徑問題未能顯示，主控台提示友善 (可選)
-    const testImg = document.querySelector('.test-image');
-    if(testImg) {
-        testImg.addEventListener('error', function() {
-            console.log("圖片載入失敗: 請確認 'me.png' 是否與網頁在同目錄下，或提供正確路徑。");
-        });
-    }
-    console.log("霍蘭德結果頁面 | 圖片路徑已改為 me.png | 紅色框內包含截圖與數據表格 | 回首頁按鈕導向 about.html");
 </script>
 </body>
 </html>
