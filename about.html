@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>張哲綸 | 個人網頁</title>
+    <title>張哲綸 | 個人網頁 · 整面風格</title>
     <style>
         * {
             margin: 0;
@@ -12,45 +12,48 @@
         }
 
         body {
-            background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
+            background: #eef2fa;
             font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
             line-height: 1.5;
             color: #1a2c3e;
-            padding: 2rem 1.5rem;
         }
 
-        /* 主容器 */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(0px);
-            border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02);
-            overflow: hidden;
-            transition: all 0.2s ease;
+        /* 整面主容器 — 無外距邊框，100%寬度，真正「整面」沉浸 */
+        .fullpage {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
         }
 
-        /* 頁首裝飾 */
+        /* 頁首區域 — 整面寬度，無邊界限制 */
         .hero {
-            background: linear-gradient(135deg, #2b3b4e 0%, #1f2e3f 100%);
-            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, #1f2e3f 0%, #0f1e2c 100%);
+            padding: 3rem 5%;
             color: white;
-            border-bottom: 5px solid #ffb347;
+            border-bottom: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: 2.6rem;
+            font-weight: 700;
             letter-spacing: -0.3px;
             margin-bottom: 0.5rem;
-            display: inline-block;
+            word-break: break-word;
         }
 
         .hero h1 a {
             color: #ffdd99;
             text-decoration: none;
-            border-bottom: 2px dotted #ffb347;
+            border-bottom: 3px solid #ffb347;
             transition: 0.2s;
         }
 
@@ -60,69 +63,90 @@
         }
 
         .hero-tagline {
-            font-size: 1rem;
-            opacity: 0.85;
-            margin-top: 0.75rem;
-            border-left: 3px solid #ffb347;
-            padding-left: 1rem;
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-top: 1rem;
+            border-left: 4px solid #ffb347;
+            padding-left: 1.2rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 0 12px 12px 0;
         }
 
-        /* 內文區塊 */
+        .hero-tagline a {
+            color: #ffdd99;
+            border-bottom: 1px solid #ffb347;
+            text-decoration: none;
+        }
+
+        .hero-tagline a:hover {
+            color: white;
+        }
+
+        /* 內容區塊 — 整面但內部有舒適邊距，版面大器 */
         .content {
-            padding: 2rem 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 3rem 5%;
         }
 
-        /* 卡片式區塊 */
+        /* 卡片採用現代風格，無邊框陰影柔和，整面流暢 */
         .card {
-            background: #ffffff;
-            border-radius: 1.5rem;
-            padding: 1.5rem 1.8rem;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            padding: 2rem 2.2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #eef2f5;
+            box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.3s;
+            border: 1px solid #ffffff70;
+            backdrop-filter: blur(0px);
         }
 
         .card:hover {
-            box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 22px 35px -14px rgba(0, 0, 0, 0.12);
+            background: #ffffff;
         }
 
         h2 {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.9rem;
+            font-weight: 700;
             margin-bottom: 0.75rem;
             color: #1f3a48;
-            border-left: 6px solid #ffb347;
-            padding-left: 0.9rem;
+            border-left: 8px solid #ffb347;
+            padding-left: 1rem;
+            letter-spacing: -0.2px;
         }
 
         .card-desc {
-            color: #4a6272;
-            margin-bottom: 1.2rem;
-            font-size: 0.95rem;
+            color: #2c4b62;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            font-weight: 500;
         }
 
-        /* 統一按鈕樣式 - 每個區塊只留一個主按鈕 */
+        /* 主按鈕 — 更顯眼，符合整面大氣 */
         .main-btn {
-            background: linear-gradient(135deg, #ffb347 0%, #ff9f2a 100%);
-            padding: 0.7rem 1.8rem;
+            background: linear-gradient(135deg, #ffb347 0%, #ff941a 100%);
+            padding: 0.85rem 2rem;
             border-radius: 3rem;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             text-decoration: none;
             color: white;
             transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             border: none;
-            box-shadow: 0 4px 10px rgba(255, 180, 71, 0.3);
+            box-shadow: 0 6px 14px rgba(255, 140, 0, 0.35);
+            letter-spacing: 0.5px;
         }
 
         .main-btn:hover {
-            background: linear-gradient(135deg, #ff9f2a 0%, #ff8c00 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(255, 140, 0, 0.35);
+            background: linear-gradient(135deg, #ff9f2a 0%, #ff7b00 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(255, 100, 0, 0.4);
             color: white;
         }
 
@@ -130,161 +154,179 @@
             transform: translateY(1px);
         }
 
-        /* 次要按鈕保留但不再使用多個，此處僅供footer等其他連結 */
-        .btn-link {
-            background: #f0f4f9;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            color: #1f3a48;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            border: 1px solid #dce5ec;
-        }
-
-        .btn-link:hover {
-            background: #ffb34720;
-            border-color: #ffb347;
-            color: #c45f00;
-            transform: translateY(-1px);
-        }
-
-        a {
-            color: #2a6f8f;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-        }
-
-        a:hover {
-            color: #e67e22;
-        }
-
-        hr {
-            margin: 1rem 0;
-            border: none;
-            height: 1px;
-            background: linear-gradient(to right, #e0e8f0, transparent);
-        }
-
+        /* 頁腳 — 整面延伸，寬廣舒適 */
         footer {
-            background: #f8fafd;
-            padding: 1.2rem 2.5rem;
+            background: #0f1a24;
+            padding: 2rem 5%;
             text-align: center;
-            font-size: 0.8rem;
-            color: #5c6f87;
-            border-top: 1px solid #e2edf2;
+            font-size: 0.9rem;
+            color: #bdd4e8;
+            border-top: none;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .footer-links {
-            margin-top: 8px;
+            margin-top: 12px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 28px;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #5f7f9e;
+            color: #ffcd94;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+            border-bottom: 1px dotted #ffb34770;
         }
 
-        @media (max-width: 650px) {
-            body {
-                padding: 1rem;
+        .footer-links a:hover {
+            color: #ffb347;
+            border-bottom-color: #ffb347;
+        }
+
+        /* 響應式調整 — 依然保持整面流暢感 */
+        @media (max-width: 750px) {
+            .hero {
+                padding: 2rem 5%;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
             }
             .content {
-                padding: 1.2rem;
-            }
-            .hero {
-                padding: 1.5rem;
+                padding: 2rem 5%;
             }
             .card {
-                padding: 1.2rem;
+                padding: 1.5rem;
             }
             h2 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .main-btn {
-                padding: 0.5rem 1.4rem;
-                font-size: 0.9rem;
+                padding: 0.7rem 1.5rem;
+                font-size: 0.95rem;
             }
+            .hero-tagline {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card-desc {
+                font-size: 0.95rem;
+            }
+            .footer-links {
+                gap: 18px;
+            }
+        }
+
+        /* 裝飾細節 */
+        .highlight {
+            background: linear-gradient(120deg, #ffecb3 0%, #ffecb3 40%, transparent 80%);
+            padding: 0 4px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* 按鈕區動畫微交互 */
+        .card .main-btn {
+            margin-top: 0.2rem;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <!-- 頁首區域：標題＋副標 -->
+<div class="fullpage">
+    <!-- 頁首區域：整面寬度、深色質感，保留原標題連結與個人訊息 -->
     <div class="hero">
-        <h1>
-            <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
-        </h1>
-        <div class="hero-tagline">
-            🌟 為了能夠學習更多網頁知識，且練習可以累積更多經驗，便有了這個
-            <a href="https://myself-plum.vercel.app/" target="_blank" rel="noopener noreferrer" style="color:#ffdd99; border-bottom:1px solid #ffb347;">個人網頁</a>
-            。
+        <div class="hero-content">
+            <h1>
+                <a href="https://www.mis.nsysu.edu.tw/" target="_blank" rel="noopener noreferrer">資管二B_411312155_張哲綸</a>
+            </h1>
+            <div class="hero-tagline">
+                🌟 為了能夠學習更多網頁知識，且練習可以累積更多經驗，便有了這個
+                <a href="https://myself-plum.vercel.app/" target="_blank" rel="noopener noreferrer">個人網頁</a>
+                — 整面式設計，專注呈現我的生涯焦點。
+            </div>
         </div>
     </div>
 
+    <!-- 主要內容：維持四個核心區塊，每個區塊只有一個主要按鈕，版面整面寬廣 -->
     <div class="content">
-        <!-- 區塊1：興趣何倫碼測驗結果 - 只有一個按鈕 -->
+        <!-- 區塊1：興趣何倫碼測驗結果 -->
         <div class="card">
             <h2>📊 興趣何倫碼測驗結果</h2>
-            <div class="card-desc">社會型｜事務型｜企業型 — 傾向與人群互動、組織規劃與執行事務。</div>
+            <div class="card-desc">
+                <span class="highlight">社會型｜事務型｜企業型</span> — 傾向與人群互動、組織規劃與執行事務。透過專業測驗探索職涯錨點。
+            </div>
             <!-- 單一按鈕：CCL's測驗結果，連結至 RSC.html -->
             <a href="RSC.html" class="main-btn">
                 📑 CCL's測驗結果
             </a>
         </div>
 
-        <!-- 區塊2：相關工作介紹 - 只有一個按鈕 -->
+        <!-- 區塊2：相關工作介紹 - 專案經理／PM -->
         <div class="card">
             <h2>💼 相關工作介紹</h2>
-            <div class="card-desc">專案經理 / 專案管理師 PM — 為專案的成功策劃和執行負總責的人。</div>
-            <!-- 單一按鈕：連結至外部詳細介紹（例如 104 職缺或維基） -->
+            <div class="card-desc">
+                專案經理 / 專案管理師 PM — 為專案的成功策劃和執行負總責的人，整合資源、帶領團隊達成目標。
+            </div>
+            <!-- 單一按鈕：連結至外部詳細介紹 104職缺頁面 (保持原目標實用) -->
             <a href="https://www.104.com.tw/job/projectmanager" target="_blank" rel="noopener noreferrer" class="main-btn">
                 🔍 瞭解專案經理職務
             </a>
         </div>
 
-        <!-- 區塊3：未來目標 - 只有一個按鈕 -->
+        <!-- 區塊3：未來目標 - 張哲綸的學習規劃 -->
         <div class="card">
             <h2>🎯 張哲綸's 未來目標</h2>
-            <div class="card-desc">✨ 「了解自己在做什麼」 — 不僅學習技術，更培養規劃思維。</div>
-            <!-- 單一按鈕：連結至學習規劃筆記或課程地圖 -->
+            <div class="card-desc">
+                ✨ 「<strong>了解自己在做什麼</strong>」 — 不僅學習技術，更培養規劃思維，結合資管與管理實務，成為數位轉型推手。
+            </div>
+            <!-- 單一按鈕：連結至學習規劃筆記或課程地圖(中山資管課程地圖) -->
             <a href="https://www.mis.nsysu.edu.tw/p/405-1102-267099,c151.php?Lang=zh-tw" target="_blank" rel="noopener noreferrer" class="main-btn">
                 📓 我的學習規劃與目標
             </a>
         </div>
 
-        <!-- 區塊4：自傳履歷 + 參與組織 - 只有一個按鈕 -->
+        <!-- 區塊4：自傳履歷 + 參與組織 - 整合版，只有一個主要按鈕 -->
         <div class="card">
             <h2>📄 自傳履歷 & 參與組織</h2>
-            <div class="card-desc">規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。</div>
-            <!-- 單一按鈕：連結至履歷平台（範例 CakeResume），使用者可自行修改網址 -->
+            <div class="card-desc">
+                規劃自己的未來及參與的組織，累積專案實戰與團隊合作經驗。展現跨域領導力與執行力。
+            </div>
+            <!-- 單一按鈕：連結至 CakeResume 履歷平台 (原樣保留，使用者可自行更換) -->
             <a href="https://www.cakeresume.com/" target="_blank" rel="noopener noreferrer" class="main-btn">
                 📄 檢視我的履歷 / 自傳
             </a>
         </div>
     </div>
 
+    <!-- 頁腳：整面延伸深色底，包含回到頂部、信箱、GitHub -->
     <footer>
-        <div>© 2025 張哲綸 · 資管二B | 個人學習網頁</div>
-        <div class="footer-links">
-            <a href="#" id="backToTop">⬆ 回到頂部</a>
-            <a href="mailto:jhelun@example.edu.tw">📧 寄信給我</a>
-            <a href="https://github.com/" target="_blank">🐙 我的 GitHub</a>
+        <div class="footer-inner">
+            <div>© 2025 張哲綸 · 資管二B | 整面式個人學習網頁 · 簡潔聚焦</div>
+            <div class="footer-links">
+                <a href="#" id="backToTop">⬆ 回到頂部</a>
+                <a href="mailto:jhelun@example.edu.tw">📧 寄信給我</a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">🐙 我的 GitHub</a>
+            </div>
         </div>
     </footer>
 </div>
 
 <script>
     (function() {
-        // 回到頂部功能
+        // 回到頂部功能 (平滑滾動)
         const backBtn = document.getElementById('backToTop');
         if (backBtn) {
             backBtn.addEventListener('click', (e) => {
@@ -293,7 +335,20 @@
             });
         }
 
-        console.log('個人網頁載入完成 — 每個大標題區塊皆已簡化為「只有一個按鈕」，版面更簡潔。');
+        // 可選：加入簡單的載入日誌，保留原精神並增加整面式觀察
+        console.log('✅ 整面風格個人網頁載入完成 — 張哲綸 | 四個核心區塊單一按鈕，版面寬廣大器，體驗流暢。');
+
+        // 增加鍵盤輔助: 使用者體驗細節
+        const allMainBtns = document.querySelectorAll('.main-btn');
+        allMainBtns.forEach(btn => {
+            btn.addEventListener('focus', () => {
+                btn.style.outline = '3px solid #ffb347';
+                btn.style.outlineOffset = '3px';
+            });
+            btn.addEventListener('blur', () => {
+                btn.style.outline = '';
+            });
+        });
     })();
 </script>
 </body>
