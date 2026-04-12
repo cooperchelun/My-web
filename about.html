@@ -18,7 +18,6 @@
             color: #1a2c3e;
         }
 
-        /* 整面主容器 */
         .fullpage {
             width: 100%;
             max-width: 100%;
@@ -27,7 +26,6 @@
             background: linear-gradient(145deg, #f8f9ff 0%, #eef2fa 100%);
         }
 
-        /* 頁首區域 */
         .hero {
             background: linear-gradient(135deg, #1f2e3f 0%, #0f1e2c 100%);
             padding: 3rem 5%;
@@ -103,7 +101,6 @@
             opacity: 0.9;
         }
 
-        /* 內容區塊 */
         .content {
             max-width: 1300px;
             margin: 0 auto;
@@ -144,7 +141,6 @@
             font-weight: 500;
         }
 
-        /* 主按鈕 */
         .main-btn {
             background: linear-gradient(135deg, #ffb347 0%, #ff941a 100%);
             padding: 0.85rem 2rem;
@@ -173,7 +169,6 @@
             transform: translateY(1px);
         }
 
-        /* 頁腳 */
         footer {
             background: #0f1a24;
             padding: 2rem 5%;
@@ -263,7 +258,8 @@
             </h1>
             <div class="hero-tagline">
                 <span class="hero-tagline-text">📌 快捷連結：</span>
-                <a href="introduc.html" class="hero-link-btn">
+                <!-- 修正：introduc.html → introduce.html -->
+                <a href="introduce.html" class="hero-link-btn">
                     📄 我的資料
                 </a>
             </div>
@@ -271,7 +267,6 @@
     </div>
 
     <div class="content">
-        <!-- 區塊1：興趣何倫碼測驗結果 -->
         <div class="card">
             <h2>📊 興趣何倫碼測驗結果</h2>
             <div class="card-desc">
@@ -282,7 +277,6 @@
             </a>
         </div>
 
-        <!-- 區塊2：相關工作介紹 - 更新為「後端軟體工程師(台中)」，按鈕連結至 mis.html -->
         <div class="card">
             <h2>💼 相關工作介紹</h2>
             <div class="card-desc">
@@ -290,13 +284,11 @@
                 負責後端架構設計與開發，運用 C# / Node.js / Python / PHP 等語言，參與企業核心系統與 AI 應用 (LLM) 建置。<br>
                 具備關聯式資料庫經驗、API 開發能力者佳。團隊重視溝通、邏輯與學習力，歡迎追求卓越的夥伴！
             </div>
-            <!-- 按鈕已修改為連至 mis.html -->
             <a href="mis.html" class="main-btn">
                 🚀 探索後端工程師職務
             </a>
         </div>
 
-        <!-- 區塊3：自傳履歷 + 參與組織 -->
         <div class="card">
             <h2>📄 自傳履歷 & 參與組織</h2>
             <div class="card-desc">
@@ -327,8 +319,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-
-        console.log('✅ 頁面已更新：相關工作介紹按鈕現在連結至 mis.html，職務說明更新為「後端軟體工程師(台中)」。');
+        console.log('✅ about.html 已修正：快捷按鈕連結至正確的 introduce.html');
     })();
 </script>
 </body>
